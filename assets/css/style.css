@@ -583,12 +583,12 @@ video {
   gap: 60px;
 }
 
-.rounded-full {
-  border-radius: 9999px;
-}
-
 .rounded-med {
   border-radius: 5px;
+}
+
+.rounded-full {
+  border-radius: 9999px;
 }
 
 .bg-whiteTransparent {
@@ -612,24 +612,24 @@ video {
   padding-right: 17px;
 }
 
-.px-\[25px\] {
-  padding-left: 25px;
-  padding-right: 25px;
-}
-
 .px-\[60px\] {
   padding-left: 60px;
   padding-right: 60px;
 }
 
-.py-\[12px\] {
-  padding-top: 12px;
-  padding-bottom: 12px;
-}
-
 .py-\[15px\] {
   padding-top: 15px;
   padding-bottom: 15px;
+}
+
+.px-\[25px\] {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.py-\[12px\] {
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 
 .pt-\[50px\] {
@@ -683,12 +683,6 @@ video {
   outline-offset: 2px;
 }
 
-.transition-\[\] {
-  transition-property: ;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
 .transition-\[\.2s\] {
   transition-property: .2s;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -701,10 +695,6 @@ video {
 
 .placeholder\:text-whitePlaceholder::placeholder {
   color: #FFFFFF99;
-}
-
-.hover\:bg-whitePlaceholder:hover {
-  background-color: #FFFFFF99;
 }
 
 .hover\:bg-whiteFaded:hover {

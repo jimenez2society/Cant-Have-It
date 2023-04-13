@@ -4,11 +4,79 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="manifest" href="/manifest.json" />
+    <link
+      rel="icon"
+      type="image/svg"
+      sizes="16x16"
+      href="/assets/favicon16x16.svg"
+    />
+    <link
+      rel="apple-touch-icom"
+      href="./assets/favicon16x16.svg"
+      sizes="16x16"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Open+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Can't Have It</title>
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon16x16.svg" />
   </head>
-  <body class="min-h-screen">
-    <main class="min-h-screen  bg-gradient bg-cover"></main>
+  <body class="min-h-screen bg-gradient bg-cover">
+    <header
+      class="flex items-center justify-between px-[60px] pt-[50px] mb-[60px]"
+    >
+      <span class="logo">
+        <img
+          src="./assets/svg/mainCantHaveItLogo.svg"
+          alt="Can't have it logo"
+        />
+      </span>
+      <nav>
+        <ul class="flex gap-[60px] items-center text-[18px]">
+          <li class="text-secondary">
+            <a href="#">Restrictions</a>
+          </li>
+          <li class="text-secondary">
+            <a href="#">Saved Meals</a>
+          </li>
+          <li class="text-secondary">
+            <a
+              class="bg-whiteTransparent hover:bg-whiteFaded transition-[.2s] py-[15px] px-[17px] rounded-med"
+              href="#"
+              >Get more recipes</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="text-whiteFull text-center mb-[65px]">
+        <h1 class="font-cormorant text-[96px] leading-[116px]">Discover</h1>
+        <h2 class="text-[24px] tracking-[0.285em] leading-[33px]">
+          your tailored meal
+        </h2>
+      </div>
+      <form id="main-page__ingredients-form" class="mx-auto w-[650px] relative">
+        <input
+          id="main-page__ingredients-input"
+          type="text"
+          class="w-full bg-whiteTransparent outline-none text-whiteFull placeholder:text-whitePlaceholder px-[25px] py-[12px] rounded-full"
+          placeholder="Start typing ingredients..."
+        />
+        <button
+          id="main-page__ingredients-btn"
+          type="submit"
+          class="p-[5px] absolute right-0 top-[50%] translate-y-[-50%] translate-x-[-25px]"
+        >
+          <img src="./assets/svg/inputArrow.svg" alt="" />
+        </button>
+      </form>
+    </main>
   </body>
   <script src="script.js"></script>
 </html>

@@ -1,10 +1,11 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
   content: ["./*.html"],
   theme: {
     extend: {
       backgroundImage: {
-        gradient: "linear-gradient(286.15deg, #F9623C 31.68%, #FF8162 96.39%);",
+        gradient: "linear-gradient(286.15deg, #F9623C 31.68%, #F45B34 96.39%);",
       },
       borderRadius: {
         med: "5px",
@@ -20,12 +21,19 @@ module.exports = {
         med: "0px 3px 7px rgba(0, 0, 0, 0.25)",
         large: " 0px 4px 15px rgba(0, 0, 0, 0.25)",
       },
+      fontFamily: {
+        sans: ["Open Sans", ...defaultTheme.fontFamily.sans],
+        cormorant: ["Cormorant Garamond", "serif"],
+      },
+
       colors: {
         primary: "#F1674F",
         secondary: "#FEFFF9",
         whiteFull: "#FFFAF9",
         inputBg: "#F8F8F8",
+        whitePlaceholder: "#FFFFFF99",
         whiteFaded: "#FFFFFF60",
+        whiteTransparent: "#FFFFFF25",
         vegetarian: "#A8F895",
         vegan: "#E9FFBB",
         glutenFree: "#F8E295",

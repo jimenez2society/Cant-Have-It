@@ -44,7 +44,7 @@ html {
   -o-tab-size: 4;
      tab-size: 4;
   /* 3 */
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: Open Sans, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   /* 4 */
   font-feature-settings: normal;
   /* 5 */
@@ -516,14 +516,187 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.right-0 {
+  right: 0px;
+}
+
+.top-\[50\%\] {
+  top: 50%;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mb-\[60px\] {
+  margin-bottom: 60px;
+}
+
+.mb-\[65px\] {
+  margin-bottom: 65px;
+}
+
+.flex {
+  display: flex;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
 
+.w-\[650px\] {
+  width: 650px;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.translate-x-\[-25px\] {
+  --tw-translate-x: -25px;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.translate-y-\[-50\%\] {
+  --tw-translate-y: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-\[60px\] {
+  gap: 60px;
+}
+
+.rounded-med {
+  border-radius: 5px;
+}
+
+.rounded-full {
+  border-radius: 9999px;
+}
+
+.bg-whiteTransparent {
+  background-color: #FFFFFF25;
+}
+
 .bg-gradient {
-  background-image: linear-gradient(286.15deg, #F9623C 31.68%, #FF8162 96.39%);;
+  background-image: linear-gradient(286.15deg, #F9623C 31.68%, #F45B34 96.39%);;
 }
 
 .bg-cover {
   background-size: cover;
+}
+
+.p-\[5px\] {
+  padding: 5px;
+}
+
+.px-\[17px\] {
+  padding-left: 17px;
+  padding-right: 17px;
+}
+
+.px-\[60px\] {
+  padding-left: 60px;
+  padding-right: 60px;
+}
+
+.py-\[15px\] {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.px-\[25px\] {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.py-\[12px\] {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.pt-\[50px\] {
+  padding-top: 50px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.font-cormorant {
+  font-family: Cormorant Garamond, serif;
+}
+
+.text-\[18px\] {
+  font-size: 18px;
+}
+
+.text-\[24px\] {
+  font-size: 24px;
+}
+
+.text-\[96px\] {
+  font-size: 96px;
+}
+
+.leading-\[116px\] {
+  line-height: 116px;
+}
+
+.leading-\[33px\] {
+  line-height: 33px;
+}
+
+.tracking-\[0\.285em\] {
+  letter-spacing: 0.285em;
+}
+
+.text-secondary {
+  --tw-text-opacity: 1;
+  color: rgb(254 255 249 / var(--tw-text-opacity));
+}
+
+.text-whiteFull {
+  --tw-text-opacity: 1;
+  color: rgb(255 250 249 / var(--tw-text-opacity));
+}
+
+.outline-none {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.transition-\[\.2s\] {
+  transition-property: .2s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.placeholder\:text-whitePlaceholder::-moz-placeholder {
+  color: #FFFFFF99;
+}
+
+.placeholder\:text-whitePlaceholder::placeholder {
+  color: #FFFFFF99;
+}
+
+.hover\:bg-whiteFaded:hover {
+  background-color: #FFFFFF60;
 }

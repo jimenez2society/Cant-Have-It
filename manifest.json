@@ -1,0 +1,13 @@
+{
+  "short_name": "Can't Have It",
+  "name": "Can't Have It: Tailored Recipe Searches",
+  "icons": [
+    { "src": "/assets/favicon16x16.svg", "sizes": "16x16", "type": "image/svg" }
+  ],
+  "id": "/?source=pwa",
+  "start_url": "/index.html",
+  "background_color": "#F1674F",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#F1674F"
+}

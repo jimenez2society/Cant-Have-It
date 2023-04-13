@@ -30,17 +30,17 @@ API endpoint example:
 
 - We use the base url `https://api.spoonacular.com`
 - We include the appropriate paths after the base url `/recipes/complexSearch`
-- We include our api key in the query `?apiKey=6011a6a178b345a191a3bac0d7aa7aa3`
+- We include our api key in the query `?apiKey={API_KEY}`
 - The `?` starts a query
 - Finally, we make our query with certain parameters that the api has predefined for users. We do this after our api key with the `&` sign `&query=breakfast&excludeIngredients=eggs`
 - The `&` sign basically seperates the different options also know as the `parameters`
-- Now, here is what the full api url looks like `https://api.spoonacular.com/recipes/complexSearch?apiKey=6011a6a178b345a191a3bac0d7aa7aa3&query=breakfast&excludeIngredients=eggs`
+- Now, here is what the full api url looks like `https://api.spoonacular.com/recipes/complexSearch?apiKey={API_KEY}&query=breakfast&excludeIngredients=eggs`
 
 ## Excluding multiple items from a meal
 
 API endpoint example:
 
-- `https://api.spoonacular.com/recipes/complexSearch?apiKey=6011a6a178b345a191a3bac0d7aa7aa3&query=breakfast&excludeIngredients=eggs,bacon,beef`
+- `https://api.spoonacular.com/recipes/complexSearch?apiKey={API_KEY}&query=breakfast&excludeIngredients=eggs,bacon,beef`
 
 - The only difference here is that we are adding multiple ingredients to the excludeIngredients parameter seperated by commas
 
@@ -59,7 +59,7 @@ API endpoint example:
 
 API endpoint example
 
-- `https://api.spoonacular.com/recipes/complexSearch?apiKey=6011a6a178b345a191a3bac0d7aa7aa3&diet=Pescetarian`
+- `https://api.spoonacular.com/recipes/complexSearch?apiKey={API_KEY}&diet=Pescetarian`
 
 - We use the `diet` parameter and select a dietary restrictions options. There is a list of what we can use [here](https://spoonacular.com/food-api/docs#Diets)
 
@@ -67,7 +67,7 @@ API endpoint example
 
 API endpoint example:
 
-- `https://api.spoonacular.com/recipes/{id}/analyzedInstructions?apiKey=6011a6a178b345a191a3bac0d7aa7aa3`
+- `https://api.spoonacular.com/recipes/{id}/analyzedInstructions?apiKey={API_KEY}`
 
 - We will get the `id` from one of the above responses and replace the `${id}` with it. This will generate the steps on how to prepare the recipe
 

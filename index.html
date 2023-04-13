@@ -39,7 +39,7 @@
       <nav>
         <ul class="flex gap-[60px] items-center text-[18px]">
           <li class="text-secondary">
-            <a href="#">Restrictions</a>
+            <a href="/pages/restrictionsPage.html">Restrictions</a>
           </li>
           <li class="text-secondary">
             <a href="#">Saved Meals</a>
@@ -61,12 +61,17 @@
           your tailored meal
         </h2>
       </div>
-      <form id="main-page__ingredients-form" class="mx-auto w-[650px] relative">
+      <form
+        id="main-page__ingredients-form"
+        class="mx-auto w-[650px] relative mb-[133px]"
+      >
         <input
           id="main-page__ingredients-input"
+          name="ingredients"
           type="text"
           class="w-full bg-whiteTransparent outline-none text-whiteFull placeholder:text-whitePlaceholder px-[25px] py-[12px] rounded-full"
           placeholder="Start typing ingredients..."
+          value=""
         />
         <button
           id="main-page__ingredients-btn"
@@ -76,7 +81,26 @@
           <img src="./assets/svg/inputArrow.svg" alt="" />
         </button>
       </form>
+      <footer class="flex flex-col items-center pb-[10px]">
+        <div class="flex gap-[151px]">
+          <div class="w-[337px] h-[361px] bg-whiteTransparent rounded-[10px]">
+            Card 1
+          </div>
+          <div class="w-[337px] h-[361px] bg-whiteTransparent rounded-[10px]">
+            Card 2
+          </div>
+          <div class="w-[337px] h-[361px] bg-whiteTransparent rounded-[10px]">
+            Card 3
+          </div>
+          <div class="w-[337px] h-[361px] bg-whiteTransparent rounded-[10px]">
+            Card 4
+          </div>
+        </div>
+        <span class="block text-[12px] mt-[30px] text-whiteFaded"
+          >TM © 2023 — Can’t Have It Inc. — All Rights Reserved</span
+        >
+      </footer>
     </main>
   </body>
-  <script src="script.js"></script>
+  <script src="script.js" type="module"></script>
 </html>

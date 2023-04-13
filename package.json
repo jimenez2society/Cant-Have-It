@@ -1,0 +1,12 @@
+{
+  "name": "cant-have-it",
+  "version": "1.0.0",
+  "description": "** Group Project **\r To main",
+  "main": "script.js",
+  "scripts": {
+    "build": "npx tailwindcss -i ./assets/main.css -o ./assets/css/style.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

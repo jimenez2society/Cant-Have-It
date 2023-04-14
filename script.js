@@ -27,11 +27,12 @@ ingredientsFormMainPage.addEventListener("submit", (e) => {
     JSON.stringify([{ pendingRequest: finalizedData }])
   );
 
-  //set value fo answeredRestrictLocal
+  //set value fo answeredRestrictionLocal
   // check if there is a answeredRestrictionModal in localStorage
   if (localStorage.getItem("answeredRestrictedModal")) {
+    //if modal returns true redirect to meals page and continue api call
     window.location.pathname = "/pages/meals.html";
   } else {
-    openModal();
+    //if modal returns false redirect to restrictions page and get restrictions before continuing api call
   }
 });

@@ -1,1 +1,3 @@
 util
+# Local Netlify folder
+.netlify

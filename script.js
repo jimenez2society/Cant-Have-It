@@ -1,5 +1,7 @@
 // testing form submit
-import { SPOONACULAR_API_KEY } from "./util/keys.js";
+
+import { mealsCard } from "./helpers/mealsCard.js";
+import { openModal } from "./helpers/modalHelper.js";
 
 let ingredientsFormMainPage = document.querySelector(
   "#main-page__ingredients-form"
@@ -20,24 +22,16 @@ ingredientsFormMainPage.addEventListener("submit", (e) => {
 
   // save the items in localStorage temporarily called pendingRequest
 
-  localStorage.setItem("pendingRequest", JSON.stringify(finalizedData));
+  localStorage.setItem(
+    "options",
+    JSON.stringify([{ pendingRequest: finalizedData }])
+  );
 
   //set value fo answeredRestrictLocal
   // check if there is a answeredRestrictionModal in localStorage
   if (localStorage.getItem("answeredRestrictedModal")) {
     window.location.pathname = "/pages/meals.html";
   } else {
-    window.location.pathname = "/pages/restrictionsPage.html";
+    openModal();
   }
-
-  // if modal returns false then continue with api call
-  // callApi(pendingRequest)
-
-  // if modal returns true then redirect to the resctrictions page
-
-  // once restrictions are added perform api call with all variables
-
-  //   callApi() this will have the added restrictions
-  //   window.location.pathname = "/pages/restrictionsPage.html";
-  //   `https://api.spoonacular.com/recipes/complexSearch?apiKey={API_KEY}&query=breakfast&excludeIngredients=finalizedData`
 });

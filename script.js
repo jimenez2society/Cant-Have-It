@@ -22,22 +22,13 @@ ingredientsFormMainPage.addEventListener("submit", (e) => {
 
   localStorage.setItem("pendingRequest", JSON.stringify(finalizedData));
 
-  //set value fo answeredRestrictLocal
+  //set value fo answeredRestrictionLocal
   // check if there is a answeredRestrictionModal in localStorage
   if (localStorage.getItem("answeredRestrictedModal")) {
+    //if modal returns true redirect to meals page and continue api call
     window.location.pathname = "/pages/meals.html";
   } else {
+    //if modal returns false redirect to restrictions page and get restrictions before continuing api call
     window.location.pathname = "/pages/restrictionsPage.html";
   }
-
-  // if modal returns false then continue with api call
-  // callApi(pendingRequest)
-
-  // if modal returns true then redirect to the resctrictions page
-
-  // once restrictions are added perform api call with all variables
-
-  //   callApi() this will have the added restrictions
-  //   window.location.pathname = "/pages/restrictionsPage.html";
-  //   `https://api.spoonacular.com/recipes/complexSearch?apiKey={API_KEY}&query=breakfast&excludeIngredients=finalizedData`
 });

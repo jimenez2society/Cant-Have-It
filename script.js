@@ -24,7 +24,7 @@ ingredientsFormMainPage.addEventListener("submit", (e) => {
 
   //set value fo answeredRestrictLocal
   // check if there is a answeredRestrictionModal in localStorage
-  if (localStorage.getItem("answeredRestirctModal")) {
+  if (localStorage.getItem("answeredRestrictedModal")) {
     window.location.pathname = "/pages/meals.html";
   } else {
     window.location.pathname = "/pages/restrictionsPage.html";

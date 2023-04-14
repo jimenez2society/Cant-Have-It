@@ -16,12 +16,14 @@ ingredientsFormMainPage.addEventListener("submit", (e) => {
   let formData = ingredients.value.split(" ");
 
   // If there are multiple ingredients join them
-  let options = JSON.parse(localStorage.getItem("options"));
+  let options =
+    localStorage.getItem("options") &&
+    JSON.parse(localStorage.getItem("options"));
   let finalizedData = formData.length > 1 ? formData.join(",") : formData[0];
-  if (finalizedData === options.pendingRequest) {
+  if (options && finalizedData === options[0].pendingRequest) {
     window.location.pathname = "/pages/meals.html";
   } else {
-    alert("API");
+    alert("api");
     // remove the bulkInfo localStorage item
   }
   // save the items in localStorage temporarily called pendingRequest

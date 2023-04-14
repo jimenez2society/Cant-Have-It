@@ -42,7 +42,7 @@ module.exports = {
         popular: "#F9623C",
         cheap: "#95F8F2",
         dairyFree: "#6C5AAA",
-        hanisColor: "#6C5AAA60",
+        pescatarian: "#408CFF",
       },
     },
   },

@@ -1,6 +1,5 @@
 // testing form submit
 
-import { mealsCard } from "./helpers/mealsCard.js";
 import { openModal } from "./helpers/modalHelper.js";
 
 let ingredientsFormMainPage = document.querySelector(
@@ -17,9 +16,14 @@ ingredientsFormMainPage.addEventListener("submit", (e) => {
   let formData = ingredients.value.split(" ");
 
   // If there are multiple ingredients join them
-
+  let options = JSON.parse(localStorage.getItem("options"));
   let finalizedData = formData.length > 1 ? formData.join(",") : formData[0];
-
+  if (finalizedData === options.pendingRequest) {
+    window.location.pathname = "/pages/meals.html";
+  } else {
+    alert("API");
+    // remove the bulkInfo localStorage item
+  }
   // save the items in localStorage temporarily called pendingRequest
 
   localStorage.setItem(
@@ -34,5 +38,8 @@ ingredientsFormMainPage.addEventListener("submit", (e) => {
     window.location.pathname = "/pages/meals.html";
   } else {
     //if modal returns false redirect to restrictions page and get restrictions before continuing api call
+
+    // open modal
+    openModal();
   }
 });

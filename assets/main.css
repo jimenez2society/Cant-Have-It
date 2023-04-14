@@ -1,3 +1,186 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.modal-open,
+.backdrop-open {
+  display: block;
+}
+@media screen and (max-width: 1480px) {
+  .results-container {
+    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 1430px) {
+  .card-container {
+    gap: 30px;
+  }
+}
+@media screen and (max-width: 1282px) {
+  .main {
+    padding: 0 100px;
+  }
+  .card-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+  .modal {
+    top: 30%;
+  }
+  .modal h4 {
+    font-size: 20px;
+  }
+  .modal {
+    top: 30%;
+    font-size: 20px;
+  }
+  .container-body {
+    padding: 0 50px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  #main-page__ingredients-form {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 976px) {
+  .logo {
+    display: none;
+  }
+  .logo-sm {
+    display: block;
+  }
+  .main-nav {
+    margin: 0 auto;
+    padding-left: 60px;
+    padding-right: 60px;
+    width: 100%;
+  }
+  .main-nav ul {
+    justify-content: space-around;
+    gap: 0;
+  }
+}
+@media screen and (max-width: 900px) {
+  .main {
+    padding: 0 10px;
+  }
+  #main-page__ingredients-form {
+    margin-bottom: 80px;
+
+    font-size: 12px;
+  }
+  #main-page__ingredients-form button {
+    width: 25px;
+  }
+  .modal h4 {
+    line-height: 30px;
+    font-size: 16px;
+    margin-bottom: 80px;
+  }
+  .modal .modal-btns {
+    flex-direction: column;
+    row-gap: 10px;
+  }
+  .modal-btns a {
+    width: 100%;
+    margin: 0;
+  }
+}
+@media screen and (max-width: 780px) {
+  .modal {
+    width: 80%;
+  }
+  .modal h4 {
+    margin-bottom: 40px;
+  }
+  .results-item {
+    max-width: 400px;
+    flex-direction: column;
+  }
+  .results-img {
+    max-width: 100%;
+  }
+  .currentRestrictions {
+    display: none;
+  }
+  .searchResultsTitle {
+    width: 100%;
+    text-align: center;
+  }
+  .resultItem-content {
+    flex-direction: column-reverse;
+    align-items: start;
+    gap: 0;
+  }
+  .resultItem-tags {
+    margin-bottom: 5px;
+  }
+  .resultItem-tags span {
+    font-size: 6px;
+    padding: 2px 7px;
+  }
+}
+@media screen and (max-width: 676px) {
+  .main-nav {
+    display: none;
+  }
+  #nav-toggler {
+    display: block;
+    padding: 10px;
+    cursor: pointer;
+  }
+  .main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 20px;
+  }
+  .logo-sm {
+    position: relative;
+  }
+}
+@media screen and (max-width: 608px) {
+  .card-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .container-body {
+    padding: 0 30px;
+  }
+  .main-heading {
+    font-size: 80px;
+    line-height: 80px;
+  }
+  .main-subheading {
+    font-size: 18px;
+  }
+  .modal h4 {
+    font-size: 14px;
+    line-height: 24px;
+  }
+  .modal-btns a {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+  .modal {
+    top: 20%;
+  }
+}
+@media screen and (max-width: 340px) {
+  .main-heading {
+    font-size: 64px;
+    line-height: 60px;
+  }
+  .main-subheading {
+    font-size: 14px;
+  }
+  .results-item {
+    max-width: 300px;
+    flex-direction: column;
+  }
+  .results-img {
+    width: 100%;
+  }
+}

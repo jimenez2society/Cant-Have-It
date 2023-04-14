@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
-  content: ["./*.html"],
+  content: ["./*.html", "./pages/*.html"],
   theme: {
     extend: {
       backgroundImage: {
@@ -27,10 +27,12 @@ module.exports = {
       },
 
       colors: {
-        primary: "#F1674F",
+        primary: "#F96C44",
         secondary: "#FEFFF9",
+        btnBlue: "#408CFF",
         whiteFull: "#FFFAF9",
         inputBg: "#F8F8F8",
+        backdrop: "#26262660",
         whitePlaceholder: "#FFFFFF99",
         whiteFaded: "#FFFFFF60",
         whiteTransparent: "#FFFFFF25",
@@ -40,6 +42,7 @@ module.exports = {
         popular: "#F9623C",
         cheap: "#95F8F2",
         dairyFree: "#6C5AAA",
+        hanisColor: "#6C5AAA60",
       },
     },
   },

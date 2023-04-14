@@ -14,7 +14,7 @@
       href="/assets/favicon16x16.svg"
     />
     <link
-      rel="apple-touch-icom"
+      rel="apple-touch-icon"
       href="./assets/favicon16x16.svg"
       sizes="16x16"
     />
@@ -26,9 +26,41 @@
     <title>Can't Have It</title>
     <link rel="icon" type="image/svg+xml" href="./assets/favicon16x16.svg" />
   </head>
-  <body class="min-h-screen bg-gradient bg-cover">
+  <body
+    class="container-body min-h-screen bg-gradient bg-cover px-[60px] relative"
+  >
+    <div
+      class="modal max-w-[500px] hidden bg-whiteFull absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-70%] z-[1000] px-[35px] pt-[25px] pb-[20px] rounded-med shadow-med border-med"
+    >
+      <span
+        class="exit-modal absolute right-[15px] top-[15px] cursor-pointer p-[5px]"
+      >
+        <img class="w-[8px] lg:w-[14px]" src="./assets/svg/exit.svg" alt="" />
+      </span>
+      <h4 class="text-[24px] mx-auto mb-[150px]">
+        It appears that you currently don't have any limitations in place. Would
+        you like to impose any restrictions?
+      </h4>
+      <div class="modal-btns text-[16px] flex justify-end w-full">
+        <a
+          href="#"
+          class="denyRestrictions text-center border-btnBlue border-[1px] text-btnBlue rounded-med p-[12px]"
+        >
+          NO NEED
+        </a>
+        <a
+          href="#"
+          class="acceptRestrictions text-center ml-[10px] border-[1px] border-btnBlue bg-btnBlue text-whiteFull rounded-med py-[12px] px-[28px]"
+        >
+          TAKE ME THERE!
+        </a>
+      </div>
+    </div>
+    <div
+      class="backdrop z-[999] hidden bg-backdrop min-w-full min-h-full absolute left-0"
+    ></div>
     <header
-      class="flex items-center justify-between px-[60px] pt-[50px] mb-[60px]"
+      class="main-header flex items-center justify-between pt-[50px] mb-[60px] relative"
     >
       <span class="logo">
         <img
@@ -36,10 +68,19 @@
           alt="Can't have it logo"
         />
       </span>
-      <nav>
+      <span class="logo-sm hidden absolute top-[50%]">
+        <img
+          src="./assets/svg/itSmallScreenLogo.svg"
+          alt="Can't have it logo"
+        />
+      </span>
+      <span id="nav-toggler" class="hidden">
+        <img src="./assets/svg/hamburger-CHI.svg" alt="" />
+      </span>
+      <nav class="main-nav">
         <ul class="flex gap-[60px] items-center text-[18px]">
           <li class="text-secondary">
-            <a href="/pages/restrictionsPage.html">Restrictions</a>
+            <a href="/pages/restrictions.html">Restrictions</a>
           </li>
           <li class="text-secondary">
             <a href="#">Saved Meals</a>
@@ -54,16 +95,20 @@
         </ul>
       </nav>
     </header>
-    <main>
+    <main class="main">
       <div class="text-whiteFull text-center mb-[65px]">
-        <h1 class="font-cormorant text-[96px] leading-[116px]">Discover</h1>
-        <h2 class="text-[24px] tracking-[0.285em] leading-[33px]">
+        <h1 class="main-heading font-cormorant text-[96px] leading-[116px]">
+          Discover
+        </h1>
+        <h2
+          class="main-subheading text-[24px] tracking-[0.285em] leading-[33px]"
+        >
           your tailored meal
         </h2>
       </div>
       <form
         id="main-page__ingredients-form"
-        class="mx-auto w-[650px] relative mb-[133px]"
+        class="mx-auto w-[650px] max-w-full relative mb-[133px]"
       >
         <input
           id="main-page__ingredients-input"
@@ -81,22 +126,73 @@
           <img src="./assets/svg/inputArrow.svg" alt="" />
         </button>
       </form>
-      <footer class="flex flex-col items-center pb-[10px]">
-        <div class="flex gap-[151px]">
-          <div class="w-[337px] h-[361px] bg-whiteTransparent rounded-[10px]">
-            Card 1
+      <footer class="flex flex-col items-center pb-[10px] w-full">
+        <div
+          class="card-container grid grid-cols-4 gap-[60px] w-full justify-between"
+        >
+          <div
+            class="px-[18px] w-full pb-[40px] bg-whiteTransparent rounded-[10px] min-h-[300px]"
+          >
+            <span
+              ><img
+                src="./assets/svg/smileHeart.svg"
+                class="mx-auto mt-[60px] mb-[40px]"
+                alt=""
+            /></span>
+            <p class="text-[16px] text-whiteFull leading-[25.76px]">
+              At Can't Have It, we understand that everyone's dietary needs are
+              unique. Whether you have specific sensitivities or just don't
+              enjoy certain foods, we offer a solution that lets you tailor your
+              meals to your preferences.
+            </p>
           </div>
-          <div class="w-[337px] h-[361px] bg-whiteTransparent rounded-[10px]">
-            Card 2
+          <div
+            class="px-[18px] w-full pb-[40px] bg-whiteTransparent rounded-[10px] min-h-[300px]"
+          >
+            <span
+              ><img
+                src="./assets/svg/time.svg"
+                class="mx-auto mt-[60px] mb-[40px]"
+                alt=""
+            /></span>
+            <p class="text-[16px] text-whiteFull leading-[25.76px]">
+              With our service, you can choose your restrictions, and we'll take
+              care of the rest. No longer will you have to spend hours searching
+              for recipes that exclude certain ingredients
+            </p>
           </div>
-          <div class="w-[337px] h-[361px] bg-whiteTransparent rounded-[10px]">
-            Card 3
+          <div
+            class="px-[18px] w-full pb-[40px] bg-whiteTransparent rounded-[10px] min-h-[300px]"
+          >
+            <span
+              ><img
+                src="./assets/svg/plate.svg"
+                class="mx-auto mt-[60px] mb-[40px]"
+                alt=""
+            /></span>
+            <p class="text-[16px] text-whiteFull leading-[25.76px]">
+              Can't Have It makes meal planning easy. Just enter your ingredient
+              restrictions, and our system will exclude those ingredients from
+              recipe searches. Enjoy personalized, hassle-free meal planning
+              with Can't Have It
+            </p>
           </div>
-          <div class="w-[337px] h-[361px] bg-whiteTransparent rounded-[10px]">
-            Card 4
+          <div
+            class="px-[18px] w-full pb-[40px] bg-whiteTransparent rounded-[10px] min-h-[400px]"
+          >
+            <span
+              ><img
+                src="./assets/svg/thinking.svg"
+                class="mx-auto mt-[60px] mb-[40px]"
+                alt=""
+            /></span>
+            <p class="text-[16px] text-whiteFull leading-[25.76px]">
+              Can't Have It remembers your preferences, so you can focus on
+              enjoying delicious, personalized meals.
+            </p>
           </div>
         </div>
-        <span class="block text-[12px] mt-[30px] text-whiteFaded"
+        <span class="block text-[10px] md:text-[12px] mt-[30px] text-whiteFaded"
           >TM © 2023 — Can’t Have It Inc. — All Rights Reserved</span
         >
       </footer>

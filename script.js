@@ -1,5 +1,7 @@
 // testing form submit
-import { SPOONACULAR_API_KEY } from "./util/keys.js";
+
+import { mealsCard } from "./helpers/mealsCard.js";
+import { openModal } from "./helpers/modalHelper.js";
 
 let ingredientsFormMainPage = document.querySelector(
   "#main-page__ingredients-form"
@@ -20,7 +22,10 @@ ingredientsFormMainPage.addEventListener("submit", (e) => {
 
   // save the items in localStorage temporarily called pendingRequest
 
-  localStorage.setItem("pendingRequest", JSON.stringify(finalizedData));
+  localStorage.setItem(
+    "options",
+    JSON.stringify([{ pendingRequest: finalizedData }])
+  );
 
   //set value fo answeredRestrictionLocal
   // check if there is a answeredRestrictionModal in localStorage
@@ -29,6 +34,5 @@ ingredientsFormMainPage.addEventListener("submit", (e) => {
     window.location.pathname = "/pages/meals.html";
   } else {
     //if modal returns false redirect to restrictions page and get restrictions before continuing api call
-    window.location.pathname = "/pages/restrictionsPage.html";
   }
 });

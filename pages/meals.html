@@ -4,10 +4,81 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="manifest" href="../manifest.json" />
+    <link
+      rel="icon"
+      type="image/svg"
+      sizes="16x16"
+      href="../assets/favicon16x16.svg"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="../assets/favicon16x16.svg"
+      sizes="16x16"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Open+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <title>Can't Have It</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon16x16.svg" />
   </head>
-  <body>
-    <h1>MEALS</h1>
+  <body class="container-body min-h-screen bg-whiteFull px-[60px] relative">
+    <header
+      class="main-header flex items-center justify-between pt-[50px] mb-[60px] relative"
+    >
+      <a href="/" class="logo-sm top-[50%]">
+        <img src="../assets/svg/itSmallLogoDark.svg" alt="Can't have it logo" />
+      </a>
+      <span id="nav-toggler" class="hidden">
+        <img src="../assets/svg/hamburgerPrimary.svg" alt="" />
+      </span>
+      <nav class="main-nav">
+        <ul class="flex gap-[60px] items-center text-[18px]">
+          <li class="text-black">
+            <a href="/pages/restrictions.html">Restrictions</a>
+          </li>
+          <li class="text-black">
+            <a href="#">Saved Meals</a>
+          </li>
+          <li class="text-black">
+            <a href="#">Go to search</a>
+          </li>
+          <!-- <li class="text-whiteFull">
+            <a
+              class="bg-primary hover:bg-whiteFaded transition-[.2s] py-[15px] px-[17px] rounded-med"
+              href="#"
+              >Get more recipes</a
+            >
+          </li> -->
+        </ul>
+      </nav>
+    </header>
+    <main class="pb-[50px]">
+      <div class="flex justify-start items-center mb-[60px] md:mb-[130px]">
+        <div class="currentRestrictions block">
+          <p class="text-[14px] mb-[7px]">Current restrictions:</p>
+          <div class="grid grid-cols-2 gap-[2px]">
+            <div class="text-[8px] text-center bg-vegetarian">Vegetarian</div>
+            <div class="text-[8px] text-center bg-vegan">Vegan</div>
+            <div class="text-[8px] text-center bg-glutenFree">Gluten Free</div>
+          </div>
+        </div>
+        <h1
+          class="searchResultsTitle left-[50%] translate-x-[-50%] absolute text-[36px]"
+        >
+          Results
+        </h1>
+      </div>
+      <div class="results-container grid grid-cols-2 gap-[20px]">
+        <!-- item 1 -->
+
+        <!-- item 2 -->
+      </div>
+    </main>
   </body>
   <script src="../assets/js/meals.js" type="module"></script>
 </html>

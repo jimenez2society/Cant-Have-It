@@ -27,6 +27,45 @@
     <link rel="icon" type="image/svg+xml" href="../assets/favicon16x16.svg" />
   </head>
   <body class="container-body min-h-screen bg-whiteFull px-[60px] relative">
+    <div
+      class="mobile-nav mobile-nav--close shadow-med bg-whiteFull hidden fixed right-0 top-0 w-[75%] h-full z-[1000]"
+    >
+      <div
+        class="exit-mobile-nav flex items-center justify-center h-max w-max cursor-pointer mt-[20px] ml-[20px] mb-[90px]"
+      >
+        <img
+          class="w-[10px] h-[10px]"
+          src="../assets/svg/exit.svg"
+          alt="exit img for mobile navigation"
+        />
+      </div>
+      <ul class="px-[25px] flex flex-col gap-[7px]">
+        <li>
+          <a
+            class="w-full py-[7px] px-[10px] rounded-med hover:bg-gray-100 block text-[12px]"
+            href="/pages/restrictions.html"
+            >Restrictions</a
+          >
+        </li>
+        <li>
+          <a
+            class="w-full py-[7px] px-[10px] rounded-med hover:bg-gray-100 block text-[12px]"
+            href="/pages/savedMeals.html"
+            >Saved meals</a
+          >
+        </li>
+        <li>
+          <a
+            class="w-full py-[7px] px-[10px] rounded-med hover:bg-gray-100 block text-[12px]"
+            href="#"
+            >Get more recipes</a
+          >
+        </li>
+      </ul>
+    </div>
+    <div
+      class="backdrop z-[999] hidden bg-backdrop min-w-full min-h-full absolute left-0"
+    ></div>
     <header
       class="main-header flex items-center justify-between pt-[50px] mb-[60px] relative"
     >
@@ -74,4 +113,5 @@
     </main>
   </body>
   <script src="../assets/js/meals.js" type="module"></script>
+  <script src="../helpers/mobileNav.js" type="module"></script>
 </html>

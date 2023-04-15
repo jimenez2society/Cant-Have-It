@@ -4,6 +4,7 @@ export const openNav = () => {
   openBackDrop(() => {
     nav.classList.add("mobile-nav--close");
     nav.classList.remove("mobile-nav--open");
+    closeBackDrop();
   });
   nav.classList.remove("mobile-nav--close");
   nav.classList.add("mobile-nav--open");

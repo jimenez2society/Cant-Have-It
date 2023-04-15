@@ -23,7 +23,8 @@ export function mealsCard(meal) {
   const parser = new DOMParser();
 
   let item = parser.parseFromString(
-    `<a href=${meal.spoonacularSourceUrl} target="_blank" id=${
+    `
+    <a href=${meal.spoonacularSourceUrl} target="_blank" id=${
       meal.id
     } class="results-item flex bg-whiteFull rounded-[10px] max-w-[890px] overflow-hidden shadow-med">
         <div>

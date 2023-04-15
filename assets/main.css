@@ -5,6 +5,14 @@
 .backdrop-open {
   display: block;
 }
+.toast-open {
+  transform: translateX(0%);
+  transition: 0.3s;
+}
+.toast-close {
+  transform: translateX(100%);
+  transition: 0.3s;
+}
 @media screen and (max-width: 1480px) {
   .results-container {
     grid-template-columns: 1fr;
@@ -127,6 +135,16 @@
 @media screen and (max-width: 676px) {
   .main-nav {
     display: none;
+  }
+  .mobile-nav {
+    display: block;
+    transition: 0.3s;
+  }
+  .mobile-nav--open {
+    transform: translateX(0%);
+  }
+  .mobile-nav--close {
+    transform: translateX(100%);
   }
   #nav-toggler {
     display: block;

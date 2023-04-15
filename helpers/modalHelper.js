@@ -1,34 +1,41 @@
+import { closeBackDrop, openBackDrop } from "./backdrop.js";
 let modal = document.querySelector(".modal");
 let backdrop = document.querySelector(".backdrop");
 let exitBtn = document.querySelector(".exit-modal");
 let denyRestrictions = document.querySelector(".denyRestrictions");
 let acceptRestrictions = document.querySelector(".acceptRestrictions");
+const showOverflow = () => {
+  document.body.style.overflowY = "visible";
+};
+const hideOverflow = () => {
+  document.body.style.overflowY = "hidden";
+};
+const handleListener = (url) => {
+  localStorage.setItem("answeredRestrictedModal", true);
+  window.location.pathname = url;
+  showOverflow();
+};
 exitBtn.addEventListener("click", (e) => {
   closeModal();
-  document.body.style.overflowY = "visible";
+  showOverflow();
 });
 denyRestrictions.addEventListener("click", (e) => {
-  localStorage.setItem("answeredRestrictedModal", true);
-  window.location.pathname = "/pages/meals.html";
-  document.body.style.overflowY = "visible";
+  handleListener("/pages/meals.html");
 });
 acceptRestrictions.addEventListener("click", (e) => {
-  localStorage.setItem("answeredRestrictedModal", true);
-  window.location.pathname = "/pages/restrictions.html";
-  document.body.style.overflowY = "visible";
+  handleListener("/pages/restrictions.html");
 });
 backdrop.addEventListener("click", (e) => {
   closeModal();
 });
 
 export const openModal = () => {
-  document.body.style.overflowY = "hidden";
-
+  hideOverflow();
   modal.classList.add("modal-open");
-  backdrop.classList.add("backdrop-open");
+  openBackDrop();
 };
 export const closeModal = () => {
   modal.classList.remove("modal-open");
-  backdrop.classList.remove("backdrop-open");
-  document.body.style.overflowY = "visible";
+  closeBackDrop();
+  showOverflow();
 };

@@ -4,7 +4,7 @@ import { SPOONACULAR_API_KEY } from "../../util/keys.js";
 //we set the url to an empty string so we can populate it with data below
 let url = "";
 //we set variables and call their values from local storage assuming they are commas seperated arrays. If no stored value exists it returns an empty array.
-let searchQuery1 = JSON.parse(localStorage.getItem("pendingRequest")) || [];
+let searchQuery1 = JSON.parse(localStorage.getItem("options")) || [];
 let searchQuery2 =
   JSON.parse(localStorage.getItem("dietaryRestrictions")) || [];
 let searchQuery3 = JSON.parse(localStorage.getItem("excludedItems")) || [];
@@ -34,7 +34,7 @@ if (
     "https://api.spoonacular.com/recipes/complexSearch?apiKey=" +
     SPOONACULAR_API_KEY +
     "&query=" +
-    searchQuery1 +
+    searchQuery1[0].pendingRequest +
     "&number=100";
 } else if (
   searchQuery1.length > 0 &&
@@ -112,13 +112,13 @@ if (
     "&excludeIngredients=" +
     searchQuery3 +
     "&number=100";
-} 
-
+}
+console.log(url);
 fetch(url)
   .then((response) => response.json())
   .then((data) => {
     // handle data that's returned from the API call
-    console.log(data.results);
+    console.log(data);
   })
   //handle errors
   .catch((error) => {

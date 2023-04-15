@@ -1,17 +1,19 @@
 // testing form submit
 
+import { openToast } from "./assets/js/toast.js";
 import { openModal } from "./helpers/modalHelper.js";
 
 let ingredientsFormMainPage = document.querySelector(
   "#main-page__ingredients-form"
 );
-let ingredientsFormMainPageBtn = document.querySelector(
-  "#main-page__ingredients-btn"
-);
 let ingredients = document.querySelector(`input[name="ingredients"]`);
 ingredientsFormMainPage.addEventListener("submit", (e) => {
   e.preventDefault();
 
+  if (ingredients.value === "") {
+    openToast("Please enter atleast one ingredient");
+    return;
+  }
   //Split the input value into an array of ingredients
   let formData = ingredients.value.split(" ");
 
@@ -20,7 +22,12 @@ ingredientsFormMainPage.addEventListener("submit", (e) => {
     localStorage.getItem("options") &&
     JSON.parse(localStorage.getItem("options"));
   let finalizedData = formData.length > 1 ? formData.join(",") : formData[0];
-  if (options && finalizedData === options[0].pendingRequest) {
+  if (
+    options &&
+    finalizedData === options[0].pendingRequest &&
+    localStorage.getItem("answeredRestrictedModal")
+  ) {
+    //  we will keep previous items in the local storage
     window.location.pathname = "/pages/meals.html";
   } else {
     alert("api");

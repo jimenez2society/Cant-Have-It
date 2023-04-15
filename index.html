@@ -29,6 +29,17 @@
   <body
     class="container-body min-h-screen bg-gradient bg-cover px-[60px] relative"
   >
+    <!-- used to keep most of the styles loaded from tailwind -->
+    <span
+      class="hidden bg-primary bg-secondary bg-btnBlue bg-whiteFull bg-inputBg bg-backdrop bg-whitePlaceholder bg-whiteFaded bg-whiteTransparent bg-vegetarian bg-vegan bg-glutenFree bg-popular bg-cheap bg-dairyFree bg-pescatarian max-w-[890px] overflow-hidden mb-[15px] text-[18px] py-[15px] pl-[20px] pr-[35px] max-w-[224px] bg- h-full object-cover gap-[30px] items-center mb-[15px gap-[8px] px-[13px] py-[5px]"
+    ></span>
+    <div
+      class="toast toast-close fixed right-0 top-[200px] rounded-l-[5px] bg-whiteFull h-[50px] w-3/4 sm:w-[300px] z-[2000] border-t-[8px] border-red-600 flex items-center pl-[5px] pb-[5px]"
+    >
+      <span class="toast-msg block text-[10px]"
+        >Error : Please fill in all fields</span
+      >
+    </div>
     <div
       class="modal max-w-[500px] hidden bg-whiteFull absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-70%] z-[1000] px-[35px] pt-[25px] pb-[20px] rounded-med shadow-med border-med"
     >
@@ -55,6 +66,42 @@
           TAKE ME THERE!
         </a>
       </div>
+    </div>
+    <div
+      class="mobile-nav mobile-nav--close shadow-med bg-whiteFull hidden fixed right-0 top-0 w-[75%] h-full z-[1000]"
+    >
+      <div
+        class="exit-mobile-nav flex items-center justify-center h-max w-max cursor-pointer mt-[20px] ml-[20px] mb-[90px]"
+      >
+        <img
+          class="w-[10px] h-[10px]"
+          src="./assets/svg/exit.svg"
+          alt="exit img for mobile navigation"
+        />
+      </div>
+      <ul class="px-[25px] flex flex-col gap-[7px]">
+        <li>
+          <a
+            class="w-full py-[7px] px-[10px] rounded-med hover:bg-gray-100 block text-[12px]"
+            href="#"
+            >Restrictions</a
+          >
+        </li>
+        <li>
+          <a
+            class="w-full py-[7px] px-[10px] rounded-med hover:bg-gray-100 block text-[12px]"
+            href="#"
+            >Saved meals</a
+          >
+        </li>
+        <li>
+          <a
+            class="w-full py-[7px] px-[10px] rounded-med hover:bg-gray-100 block text-[12px]"
+            href="#"
+            >Get more recipes</a
+          >
+        </li>
+      </ul>
     </div>
     <div
       class="backdrop z-[999] hidden bg-backdrop min-w-full min-h-full absolute left-0"
@@ -199,4 +246,5 @@
     </main>
   </body>
   <script src="script.js" type="module"></script>
+  <script src="./helpers/mobileNav.js" type="module"></script>
 </html>

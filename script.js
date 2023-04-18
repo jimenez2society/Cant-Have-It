@@ -1,8 +1,8 @@
 // testing form submit
 
 import { openToast } from "./assets/js/toast.js";
+import { storage } from "./helpers/localStorage.js";
 import { openModal } from "./helpers/modalHelper.js";
-
 
 let ingredientsFormMainPage = document.querySelector(
   "#main-page__ingredients-form"
@@ -19,28 +19,28 @@ ingredientsFormMainPage.addEventListener("submit", (e) => {
   let formData = ingredients.value.split(" ");
 
   //this sets the value of the variable options in case the user reuses the same search query
-  let options =
-    localStorage.getItem("options") &&
-    JSON.parse(localStorage.getItem("options"));
+  // localStorage.getItem("options") &&
+  let options = JSON.parse(localStorage.getItem("options"));
   // If there are multiple ingredients, this function joins them
   let finalizedData = formData.length > 1 ? formData.join(",") : formData[0];
-  //if statement checks if the options variable exists and if the finalizedData variable matches the pendingRequest value for the first item in the options array set in local stoarge below 
+  //if statement checks if the options variable exists and if the finalizedData variable matches the pendingRequest value for the first item in the options array set in local stoarge below
   if (
     options &&
-    finalizedData === options[0].pendingRequest &&
+    finalizedData === options.pendingRequest &&
     localStorage.getItem("answeredRestrictedModal")
   ) {
     //  we will keep previous items in the local storage
     window.location.pathname = "/pages/meals.html";
   } else {
-    alert("api");
+    storage.remove("bulkDataApi");
+
     // remove the bulkInfo localStorage item
   }
   // save the items in localStorage temporarily called options with the property pendingrequest set to the value of finalizedData
 
   localStorage.setItem(
     "options",
-    JSON.stringify([{ pendingRequest: finalizedData }])
+    JSON.stringify({ pendingRequest: finalizedData })
   );
 
   // check if there is a answeredRestrictionModal in localStorage

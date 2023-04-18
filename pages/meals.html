@@ -107,8 +107,36 @@
       </div>
       <div class="results-container grid grid-cols-2 gap-[20px]">
         <!-- item 1 -->
-
+        <div class="col-start-1 col-end-12 mx-auto loading-container">
+          <div class="loading">
+            <div class="outside-ring"></div>
+            <div class="inside">
+              <div class="bar-container">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+              </div>
+            </div>
+          </div>
+          <h3 class="pt-[20px] text-[32px] text-center mb-[10px]">
+            Preparing your meals
+          </h3>
+          <p class="w-[300px] text-center text-gray-500">
+            Setting up your meals catered to your specific needs
+          </p>
+        </div>
         <!-- item 2 -->
+        <div
+          class="flex-col hidden col-start-1 col-end-12 mx-auto text-center no-items"
+        >
+          <p class="text-gray-500 text-[16px] mb-[10px]">
+            No items were found that include those ingredients
+          </p>
+
+          <a class="text-primary text-[12px]" href="/index.html"
+            >Go back to search</a
+          >
+        </div>
       </div>
     </main>
   </body>

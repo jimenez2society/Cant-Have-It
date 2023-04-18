@@ -1,171 +1,136 @@
-import { dataFetch, mealsCard } from "../../helpers/mealsCard.js";
+import { storage } from "../../helpers/localStorage.js";
+import { mealsCard } from "../../helpers/mealsCard.js";
 import { SPOONACULAR_API_KEY } from "../../util/keys.js";
-
-//we set the url to an empty string so we can populate it with data below
-let url = "";
-//we set variables and call their values from local storage assuming they are commas seperated arrays. If no stored value exists it returns an empty array.
-let searchQuery1 = JSON.parse(localStorage.getItem("options")) || [];
-let searchQuery2 =
-  JSON.parse(localStorage.getItem("dietaryRestrictions")) || [];
-let searchQuery3 = JSON.parse(localStorage.getItem("excludedItems")) || [];
-
-// mealsCard(dataFetch);
-// mealsCard(dataFetch);
-// mealsCard(dataFetch);
-// mealsCard(dataFetch);
+let allOptions = storage.get("options");
 
 // set up if statements to fill in url. We assume the variables are arrays and check their length to see what url we need for our api call.
-if (
-  //this api call is for when users input data for ingredients they want with no other restrictions
-  searchQuery1.length > 0 &&
-  searchQuery2.length === 0 &&
-  searchQuery3.length === 0
-) {
-  url =
-    "https://api.spoonacular.com/recipes/complexSearch?apiKey=" +
-    SPOONACULAR_API_KEY +
-    "&query=" +
-    //selects the first object in the searchquery1 variable and selects the value of pendingrequest, this is essentially the users search query for items they want to include in their recipe search
-    searchQuery1[0].pendingRequest +
-    //the following line is added to all api calls to make the maximum number of recipies recieved 10, may be changed later once testing is finished. Maxmium of 100 is possible
-    "&number=10";
-} else if (
-  //this api call is for when users input data for ingredients they want with dietary restrictions
-  searchQuery1.length > 0 &&
-  searchQuery2.length > 0 &&
-  searchQuery3.length === 0
-) {
-  url =
-    "https://api.spoonacular.com/recipes/complexSearch?apiKey=" +
-    SPOONACULAR_API_KEY +
-    "&query=" +
-    searchQuery1[0].pendingRequest +
-    "&diet=" +
-    searchQuery2 +
-    "&number=10";
-} else if (
-  //this api call is for when users input data for ingredients they want with excluded items
-  searchQuery1.length > 0 &&
-  searchQuery2.length === 0 &&
-  searchQuery3.length > 0
-) {
-  url =
-    "https://api.spoonacular.com/recipes/complexSearch?apiKey=" +
-    SPOONACULAR_API_KEY +
-    "&query=" +
-    searchQuery1[0].pendingRequest +
-    "&excludeIngredients=" +
-    searchQuery3 +
-    "&number=10";
-} else if (
-  //this api call is for when users input data for ingredients they want with dietary restrictions and excluded items
-  searchQuery1.length > 0 &&
-  searchQuery2.length > 0 &&
-  searchQuery3.length > 0
-) {
-  url =
-    "https://api.spoonacular.com/recipes/complexSearch?apiKey=" +
-    SPOONACULAR_API_KEY +
-    "&query=" +
-    searchQuery1[0].pendingRequest +
-    "&diet=" +
-    searchQuery2 +
-    "&excludeIngredients=" +
-    searchQuery3 +
-    "&number=10";
-} else if (
-  //this api call is for when users want to exclude items from their recipe search and do nothing else
-  searchQuery1.length === 0 &&
-  searchQuery2.length > 0 &&
-  searchQuery3.length === 0
-) {
-  url =
-    "https://api.spoonacular.com/recipes/complexSearch?apiKey=" +
-    SPOONACULAR_API_KEY +
-    "&diet=" +
-    searchQuery2 +
-    "&number=10";
-} else if (
-  //this api call is for when users want to exclude items from their recipe search and include dietary restrictions
-  searchQuery1.length === 0 &&
-  searchQuery2.length > 0 &&
-  searchQuery3.length > 0
-) {
-  url =
-    "https://api.spoonacular.com/recipes/complexSearch?apiKey=" +
-    SPOONACULAR_API_KEY +
-    "&diet=" +
-    searchQuery2 +
-    "&excludeIngredients=" +
-    searchQuery3 +
-    "&number=10";
-} else if (
-  //this api call is for when users want to search for recipes with only their dietary restrictions in mind
-  searchQuery1.length === 0 &&
-  searchQuery2.length === 0 &&
-  searchQuery3.length > 0
-) {
-  url =
-    "https://api.spoonacular.com/recipes/complexSearch?apiKey=" +
-    SPOONACULAR_API_KEY +
-    "&excludeIngredients=" +
-    searchQuery3 +
-    "&number=10";
+
+// we desctructor the allOptions object
+let { pendingRequest, dietaryRestrictions, excludedItems } = allOptions;
+
+// checking if there is data in the "bulkDataApi" local storage
+const bulkDataApi = JSON.parse(localStorage.getItem("bulkDataApi"));
+console.log(storage.get("savedData"));
+// a function that takes a parameter of type
+const query = (type) => {
+  // we structure the api url depending on what "type" equals then return it
+  let url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${SPOONACULAR_API_KEY}&query=${pendingRequest}${
+    type === "diet" ? `&diet=${dietaryRestrictions}` : ""
+  }${type === "excludedItems" ? `&excludedItems=${excludedItems}` : ""}${
+    type === "all"
+      ? `&diet=${dietaryRestrictions}&excludedItems=${excludedItems}`
+      : ""
+  }&number=20`;
+  console.log(url);
+  return url;
+};
+
+const handleApiCall = (url) => {
+  // set ids to an empty array for later use
+  let ids = [];
+
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      // for each result item we push the id to the ids array above
+      data?.results.forEach((item) => ids.push(item.id));
+      // we reset ids to itself as a string seperated by commas
+      ids = ids.join(",");
+      // we return another fetch that gets the bulk data for each id
+      return fetch(
+        `https://api.spoonacular.com/recipes/informationBulk?apiKey=${SPOONACULAR_API_KEY}&ids=${ids}`
+      );
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.length === 0) {
+        let loading = document.querySelector(".loading-container");
+        loading.setAttribute("hidden", true);
+        let noItems = document.querySelector(".no-items");
+        noItems.classList.remove("hidden");
+      }
+      // we update the buildDataApi with the data that was given from the returned fetch
+      // the update method on 'storage' returns the localStorage item as well, so we set it to a variable
+      let d = storage.update("bulkDataApi", data);
+      // for each data in d we render a mealsCard
+      d.forEach((data) => mealsCard(data));
+      let saveBtn = document.querySelectorAll(".save-btn");
+      saveBtn.forEach((item) =>
+        item.addEventListener("click", (e) => {
+          let dataToSearch = storage.get("bulkDataApi");
+          let idToCompare = Number(e.target.id);
+          let foundData = dataToSearch.find((item) => item.id === idToCompare);
+          foundData.isSaved = true;
+          let prevSavedData = storage.get("savedData");
+          let dataExists = prevSavedData?.find(
+            (data) => data.id === idToCompare
+          );
+
+          if (dataExists) {
+            console.log("EXITED");
+            return;
+          }
+          if (prevSavedData) {
+            let data = [foundData, ...prevSavedData];
+            storage.set("savedData", data);
+          } else {
+            storage.set("savedData", [foundData]);
+          }
+
+          console.log(storage.get("savedData"));
+        })
+      );
+    });
+};
+// if bulkDataApi does not exist in the localStorage then allow for api calls
+if (!bulkDataApi) {
+  // if no dietary restrictions or no excluded items then only use pendingRequest data
+  if (pendingRequest && !dietaryRestrictions && !excludedItems?.length) {
+    console.log("No restrictions");
+    handleApiCall(query());
+  }
+  // if no excluded items then only use pendingRequest and dietaryRestrictions data
+  if (pendingRequest && dietaryRestrictions && !excludedItems?.length) {
+    console.log("dietary restrictions");
+    handleApiCall(query("diet"));
+  }
+  // if no dietaryRestrictions then only use pendingRequest and excluded items data
+  if (pendingRequest && !dietaryRestrictions && excludedItems) {
+    console.log("excluded items restrictions");
+    handleApiCall(query("excludedItems"));
+  }
+  // if all exists then make full query with all the data
+  if (pendingRequest && dietaryRestrictions && excludedItems.length) {
+    console.log("all restrictions");
+    handleApiCall(query("all"));
+  }
 }
-
-//this is the API call using the selected URL based off conditions stated above
-console.log(url);
-fetch(url)
-  .then((response) => response.json())
-  .then((data) => {
-    // handle data that's returned from the API call
-    console.log(data);
-  })
-  //handle errors
-  .catch((error) => {
-    console.error(error);
-  });
-  
-// if there is not a bulk info localStorage item we get bulk info
-
-let bulkApiData = [{}, {}, {}];
-
-//parses through first set of data results to get the IDs from API call and then passes them to an empty array as a comma seperated list 
-let idList = ""
-for (let i = 0 ; i < data.results.length ; i++){
-  const id = data.results[i].id;
-  idList += id + ",";
-} 
-
-//removes last comma from the list
-idList = idList.slice(0, -1);
-
-//sets a new url variable for the 2nd appi call using the comma seperated list from the first
-let url1 = 
-"https://api.spoonacular.com/recipes/informationBulk?ids="
-+idList
-
-console.log(url1);
-fetch(url1)
-  .then((response) => response.json())
-  .then((bulkApiData) => {
-    // handle data that's returned from the API call
-    console.log(bulkApiData);
-  })
-  //handle errors
-  .catch((error) => {
-    console.error(error);
-  });
-
-// set it to localStorage called currentApiInfoBulk
-
-localStorage.setItem("currentApiInfoBulk", JSON.stringify(bulkApiData));
-
-// get the localStorage items currentApiInfoBulk
-
-let bulkInfo = JSON.parse(localStorage.getItem(currentApiInfoBulk));
-
-//generates all meal cards for page
-bulkInfo.forEach((meal) => {
+// use the storage object method get() to get the bulkDataApi item from localStorage. The storage object is a created in the ./helpers/localStorage.js file
+let bulkInfo = storage.get("bulkDataApi");
+bulkInfo?.forEach((meal) => {
   mealsCard(meal);
 });
+let saveBtn = document.querySelectorAll(".save-btn");
+saveBtn.forEach((item) =>
+  item.addEventListener("click", (e) => {
+    let dataToSearch = storage.get("bulkDataApi");
+    let idToCompare = Number(e.target.id);
+    let foundData = dataToSearch.find((item) => item.id === idToCompare);
+    foundData.isSaved = true;
+    let prevSavedData = storage.get("savedData");
+    let dataExists = prevSavedData?.find((data) => data.id === idToCompare);
+localStorag
+    if (dataExists) {
+      console.log("EXITED");
+      return;
+    }
+    if (prevSavedData) {
+      let data = [foundData, ...prevSavedData];
+      storage.set("savedData", data);
+    } else {
+      storage.set("savedData", [foundData]);
+    }
+
+    console.log(storage.get("savedData"));
+  })
+);

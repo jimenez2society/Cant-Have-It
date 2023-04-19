@@ -1,111 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="manifest" href="../manifest.json" />
+    <link
+      rel="icon"
+      type="image/svg"
+      sizes="16x16"
+      href="../assets/favicon16x16.svg"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="../assets/favicon16x16.svg"
+      sizes="16x16"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Open+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <title>Can't Have It</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon16x16.svg" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="manifest" href="../manifest.json" />
-  <link rel="icon" type="image/svg" sizes="16x16" href="../assets/favicon16x16.svg" />
-  <link rel="apple-touch-icon" href="../assets/favicon16x16.svg" sizes="16x16" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Open+Sans:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="../assets/css/style.css" />
-  <title>Can't Have It</title>
-  <link rel="icon" type="image/svg+xml" href="../assets/favicon16x16.svg" />
-</head>
-
-<body class="container-body min-h-screen bg-whiteFull px-[60px] relative">
-  <div class="mobile-nav mobile-nav--close shadow-med bg-whiteFull hidden fixed right-0 top-0 w-[75%] h-full z-[1000]">
+  <body class="container-body min-h-screen bg-whiteFull px-[60px] relative">
     <div
-      class="exit-mobile-nav flex items-center justify-center h-max w-max cursor-pointer mt-[20px] ml-[20px] mb-[90px]">
-      <img class="w-[10px] h-[10px]" src="../assets/svg/exit.svg" alt="exit img for mobile navigation" />
-    </div>
-    <ul class="px-[25px] flex flex-col gap-[7px]">
-      <li>
-        <a class="w-full py-[7px] px-[10px] rounded-med hover:bg-gray-100 block text-[12px]"
-          href="/pages/restrictions.html">Restrictions</a>
-      </li>
-      <li>
-        <a class="w-full py-[7px] px-[10px] rounded-med hover:bg-gray-100 block text-[12px]"
-          href="/pages/savedMeals.html">Saved meals</a>
-      </li>
-      <li>
-        <a class="w-full py-[7px] px-[10px] rounded-med hover:bg-gray-100 block text-[12px]" href="#">Get more
-          recipes</a>
-      </li>
-    </ul>
-  </div>
-  <div class="backdrop z-[999] hidden bg-backdrop min-w-full min-h-full absolute left-0"></div>
-  <header class="main-header flex items-center justify-between pt-[50px] mb-[60px] relative">
-    <a href="/" class="logo-sm top-[50%]">
-      <img src="../assets/svg/itSmallLogoDark.svg" alt="Can't have it logo" />
-    </a>
-    <span id="nav-toggler" class="hidden">
-      <img src="../assets/svg/hamburgerPrimary.svg" alt="" />
-    </span>
-    <nav class="main-nav">
-      <ul class="flex gap-[60px] items-center text-[18px]">
-        <li class="text-black">
-          <a href="/pages/restrictions.html">Restrictions</a>
+      class="mobile-nav mobile-nav--close shadow-med bg-whiteFull hidden fixed right-0 top-0 w-[75%] h-full z-[1000]"
+    >
+      <div
+        class="exit-mobile-nav flex items-center justify-center h-max w-max cursor-pointer mt-[20px] ml-[20px] mb-[90px]"
+      >
+        <img
+          class="w-[10px] h-[10px]"
+          src="../assets/svg/exit.svg"
+          alt="exit img for mobile navigation"
+        />
+      </div>
+      <ul class="px-[25px] flex flex-col gap-[7px]">
+        <li>
+          <a
+            class="w-full py-[7px] px-[10px] rounded-med hover:bg-gray-100 block text-[12px]"
+            href="/pages/restrictions.html"
+            >Restrictions</a
+          >
         </li>
-        <li class="text-black">
-          <a href="#">Saved Meals</a>
+        <li>
+          <a
+            class="w-full py-[7px] px-[10px] rounded-med hover:bg-gray-100 block text-[12px]"
+            href="/pages/savedMeals.html"
+            >Saved meals</a
+          >
         </li>
-        <li class="text-black">
-          <a href="#">Go to search</a>
+        <li>
+          <a
+            class="w-full py-[7px] px-[10px] rounded-med hover:bg-gray-100 block text-[12px]"
+            href="#"
+            >Get more recipes</a
+          >
         </li>
       </ul>
-    </nav>
-  </header>
-  <main class="mb-[50px]">
-    <div class="flex justify-start items-center mb-[60px] md:mb-[130px]">
-      <div class="block currentRestrictions">
-        <p class="text-[14px] mb-[7px]">Current restrictions:</p>
-        <div class="grid grid-cols-2 gap-[2px]">
-          <div class="text-[8px] text-center bg-vegetarian">Vegetarian</div>
-          <div class="text-[8px] text-center bg-vegan">Vegan</div>
-          <div class="text-[8px] text-center bg-glutenFree">Gluten Free</div>
-        </div>
-      </div>
-      <h1 class="searchResultsTitle left-[50%] translate-x-[-50%] absolute text-[36px]">
-        Results
-      </h1>
     </div>
-    <div class="results-container grid grid-cols-2 gap-[20px]">
-      <!-- item 1 -->
-      <div class="col-start-1 col-end-12 mx-auto loading-container">
-        <div class="loading">
-          <div class="outside-ring"></div>
-          <div class="inside">
-            <div class="bar-container">
-              <div class="bar1"></div>
-              <div class="bar2"></div>
-              <div class="bar3"></div>
-            </div>
+    <div
+      class="backdrop z-[999] hidden bg-backdrop min-w-full min-h-full absolute left-0"
+    ></div>
+    <header
+      class="main-header flex items-center justify-between pt-[50px] mb-[60px] relative"
+    >
+      <a href="/" class="logo-sm top-[50%]">
+        <img src="../assets/svg/itSmallLogoDark.svg" alt="Can't have it logo" />
+      </a>
+      <span id="nav-toggler" class="hidden">
+        <img src="../assets/svg/hamburgerPrimary.svg" alt="" />
+      </span>
+      <nav class="main-nav">
+        <ul class="flex gap-[60px] items-center text-[18px]">
+          <li class="text-black">
+            <a href="/pages/restrictions.html">Restrictions</a>
+          </li>
+          <li class="text-black">
+            <a href="#">Saved Meals</a>
+          </li>
+          <li class="text-black">
+            <a href="#">Go to search</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="mb-[50px]">
+      <div class="flex justify-start items-center mb-[60px] md:mb-[130px]">
+        <div class="block currentRestrictions">
+          <p class="text-[14px] mb-[7px]">Current restrictions:</p>
+          <div class="grid grid-cols-2 gap-[2px]">
+            <div class="text-[8px] text-center bg-vegetarian">Vegetarian</div>
+            <div class="text-[8px] text-center bg-vegan">Vegan</div>
+            <div class="text-[8px] text-center bg-glutenFree">Gluten Free</div>
           </div>
         </div>
-        <h3 class="pt-[20px] text-[32px] text-center mb-[10px]">
-          Preparing your meals
-        </h3>
-        <p class="w-[300px] text-center text-gray-500">
-          Setting up your meals catered to your specific needs
-        </p>
+        <h1
+          class="searchResultsTitle left-[50%] translate-x-[-50%] absolute text-[36px]"
+        >
+          Results
+        </h1>
       </div>
-      <!-- item 2 -->
-      <div class="flex-col hidden col-start-1 col-end-12 mx-auto text-center no-items">
-        <p class="text-gray-500 text-[16px] mb-[10px]">
-          No items were found that include those ingredients
-        </p>
-        <a class="text-primary text-[12px]" href="/index.html">Go back to search</a>
+      <div class="results-container grid grid-cols-2 gap-[20px]">
+        <!-- item 1 -->
+        <div class="col-start-1 col-end-12 mx-auto loading-container">
+          <div class="loading">
+            <div class="outside-ring"></div>
+            <div class="inside">
+              <div class="bar-container">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+              </div>
+            </div>
+          </div>
+          <h3 class="pt-[20px] text-[32px] text-center mb-[10px]">
+            Preparing your meals
+          </h3>
+          <p class="w-[300px] text-center text-gray-500">
+            Setting up your meals catered to your specific needs
+          </p>
+        </div>
+        <!-- item 2 -->
+        <div
+          class="flex-col hidden col-start-1 col-end-12 mx-auto text-center no-items"
+        >
+          <p class="text-gray-500 text-[16px] mb-[10px]">
+            No items were found that include those ingredients. Maybe it
+            conlficts with your
+            </p>
+            
+            <a
+              class="text-primary text-[12px] "
+              href="/pages/restrictions.html"
+              >Restrictions</a
+            >
+          </p>
+          <span class="block py-[10px] text-[10px] font-bold">OR</span>
+          <a class="text-primary text-[12px]" href="/index.html"
+            >Go back to search</a
+          >
+        </div>
       </div>
-    </div>
-  </main>
-</body>
-<script src="../assets/js/meals.js" type="module"></script>
-<script src="../helpers/mobileNav.js" type="module"></script>
-
+    </main>
+  </body>
+  <script src="../assets/js/meals.js" type="module"></script>
+  <script src="../helpers/mobileNav.js" type="module"></script>
 </html>

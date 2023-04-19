@@ -2,6 +2,23 @@
 //sets the ingredientsFormRestrictionsPage variable to a form from the restirctions page html
 let options = JSON.parse(localStorage.getItem("options"));
 let currentDietTag = document.querySelector(".current-diet");
+let otherResrictionsInput = document.querySelector(".other-restrictions-input")
+let otherResrictionsBtn = document.querySelector(".other-restrictions-btn")
+let otherResrictionsForm = document.querySelector(".other-restrictions-form")
+otherResrictionsForm.addEventListener("submit", function(e){
+  e.preventDefault()
+  let previousOptions = JSON.parse(localStorage.getItem("options"));
+  if (previousOptions.excludedItems){
+    previousOptions.excludedItems.push(otherResrictionsInput.value)
+    localStorage.setItem("options", JSON.stringify(previousOptions))
+  } else {
+    previousOptions.excludedItems = [otherResrictionsInput.value]
+    localStorage.setItem("options", JSON.stringify(previousOptions))
+  }
+  console.log(otherResrictionsInput.value)
+  
+}) 
+console.log(otherResrictionsInput)
 const dietToId = (diet) => {
   console.log(diet);
   if (diet.split("-")) {

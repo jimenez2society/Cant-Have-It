@@ -10,7 +10,7 @@ let prevDiet = JSON.parse(localStorage.getItem("previousRestrictions"));
 // let searchQuery1 = JSON.parse(localStorage.getItem("options"))
 // || [];
 // let searchQuery2 =
-//   JSON.parse(localStorage.getItem("dietaryRestrictions")) || [];
+//   JSON.parse(localStorage.getItegitm("dietaryRestrictions")) || [];
 // let searchQuery3 = JSON.parse(localStorage.getItem("excludedItems")) || [];
 
 // set up if statements to fill in url. We assume the variables are arrays and check their length to see what url we need for our api call.

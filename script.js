@@ -27,7 +27,11 @@ ingredientsFormMainPage.addEventListener("submit", (e) => {
     //  we will keep previous items in the local storage
     window.location.pathname = "/pages/meals.html";
   } else {
-    alert("api");
+    localStorage.removeItem("currentApiInfoBulk");
+    if (localStorage.getItem("answeredRestrictedModal")) {
+      window.location.pathname = "/pages/meals.html";
+    }
+
     // remove the bulkInfo localStorage item
   }
   // save the items in localStorage temporarily called options with the property pendingrequest set to the value of finalizedData

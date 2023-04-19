@@ -4,10 +4,463 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="manifest" href="../manifest.json" />
+    <link
+      rel="icon"
+      type="image/svg"
+      sizes="16x16"
+      href="../assets/favicon16x16.svg"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="../assets/favicon16x16.svg"
+      sizes="16x16"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Open+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/restrictions.css" />
+    <title>Can't Have It</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon16x16.svg" />
   </head>
-  <body>
-    <h1>Hello restrictions</h1>
+
+  <body class="container-body min-h-screen bg-whiteFull px-[60px] relative">
+    <div
+      class="mobile-nav mobile-nav--close shadow-med bg-whiteFull hidden fixed right-0 top-0 w-[75%] h-full z-[1000]"
+    >
+      <div
+        class="exit-mobile-nav flex items-center justify-center h-max w-max cursor-pointer mt-[20px] ml-[20px] mb-[90px]"
+      >
+        <img
+          class="w-[10px] h-[10px]"
+          src="../assets/svg/exit.svg"
+          alt="exit img for mobile navigation"
+        />
+      </div>
+      <ul class="px-[25px] flex flex-col gap-[7px]">
+        <li>
+          <a
+            class="w-full py-[7px] px-[10px] rounded-med hover:bg-gray-100 block text-[12px]"
+            href="/pages/restrictions.html"
+            >Restrictions</a
+          >
+        </li>
+        <li>
+          <a
+            class="w-full py-[7px] px-[10px] rounded-med hover:bg-gray-100 block text-[12px]"
+            href="/pages/savedMeals.html"
+            >Saved meals</a
+          >
+        </li>
+        <li>
+          <a
+            class="w-full py-[7px] px-[10px] rounded-med hover:bg-gray-100 block text-[12px]"
+            href="#"
+            >Get more recipes</a
+          >
+        </li>
+      </ul>
+    </div>
+    <div
+      class="backdrop z-[999] hidden bg-backdrop min-w-full min-h-full absolute left-0"
+    ></div>
+    <header
+      class="main-header flex items-center justify-between pt-[50px] mb-[60px] relative"
+    >
+      <a href="/" class="logo-sm top-[50%]">
+        <img src="../assets/svg/itSmallLogoDark.svg" alt="Can't have it logo" />
+      </a>
+      <span id="nav-toggler" class="hidden">
+        <img src="../assets/svg/hamburgerPrimary.svg" alt="" />
+      </span>
+      <nav class="main-nav">
+        <ul class="flex gap-[60px] items-center text-[18px]">
+          <li class="text-black">
+            <a href="/pages/restrictions.html">Restrictions</a>
+          </li>
+          <li class="text-black">
+            <a href="#">Saved Meals</a>
+          </li>
+          <li class="text-black">
+            <a href="#">Go to search</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="restrictions-container mb-[50px]">
+      <form class="diets">
+        <fieldset>
+          <input
+            class="diet"
+            type="radio"
+            name="diet"
+            id="vegetarian"
+            value="vegetarian"
+            hidden
+          />
+          <label
+            for="vegetarian"
+            class="block diet-card border-[1px] border-[#DDE1E8] bg-[#F9FBFC] rounded-med shadow-small px-[20px] pt-[16px] pb-[12px]"
+          >
+            <div class="flex items-center gap-[10px]">
+              <span
+                class="check-circle block w-[12px] h-[12px] bg-white border-[#DDE1E8] border-[.5px] rounded-full"
+              ></span>
+              <h4 class="text-[14px]">Vegetarian</h4>
+            </div>
+            <p class="text-[12px]">
+              A vegetarian is someone who doesn't eat meat or animal flesh,
+              often for ethical, health, or environmental reasons.
+            </p>
+          </label>
+
+          <input
+            class="diet"
+            type="radio"
+            name="diet"
+            id="ovo-vegetarian"
+            value="ovo-vegetarian"
+            hidden
+          />
+          <label
+            for="ovo-vegetarian"
+            class="block diet-card border-[1px] border-[#DDE1E8] bg-[#F9FBFC] rounded-med shadow-small px-[20px] pt-[16px] pb-[12px]"
+          >
+            <div class="flex items-center gap-[10px]">
+              <span
+                class="check-circle block w-[12px] h-[12px] bg-white border-[#DDE1E8] border-[.5px] rounded-full"
+              ></span>
+              <h4 class="text-[14px]">Ovo-Vegetarian</h4>
+            </div>
+            <p class="text-[12px]">
+              Ovo-vegetarianism is a vegetarian diet that includes eggs but
+              excludes meat, fish, dairy products, and poultry.
+            </p>
+          </label>
+
+          <input
+            class="diet"
+            type="radio"
+            name="diet"
+            id="vegan"
+            value="vegan"
+            hidden
+          />
+          <label
+            for="vegan"
+            class="block diet-card border-[1px] border-[#DDE1E8] bg-[#F9FBFC] rounded-med shadow-small px-[20px] pt-[16px] pb-[12px]"
+          >
+            <div class="flex items-center gap-[10px]">
+              <span
+                class="check-circle block w-[12px] h-[12px] bg-white border-[#DDE1E8] border-[.5px] rounded-full"
+              ></span>
+              <h4 class="text-[14px]">Vegan</h4>
+            </div>
+            <p class="text-[12px]">
+              Veganism is a diet and lifestyle that avoids all animal products,
+              including meat, dairy, eggs, honey, and animal-derived materials.
+            </p>
+          </label>
+          <input
+            class="diet"
+            type="radio"
+            name="diet"
+            id="pescetarian"
+            value="pescetarian"
+            hidden
+          />
+          <label
+            for="pescetarian"
+            class="block diet-card border-[1px] border-[#DDE1E8] bg-[#F9FBFC] rounded-med shadow-small px-[20px] pt-[16px] pb-[12px]"
+          >
+            <div class="flex items-center gap-[10px]">
+              <span
+                class="check-circle block w-[12px] h-[12px] bg-white border-[#DDE1E8] border-[.5px] rounded-full"
+              ></span>
+              <h4 class="text-[14px]">Pescetarian</h4>
+            </div>
+            <p class="text-[12px]">
+              A pescetarian is someone who doesn't eat meat but eats fish and
+              seafood.
+            </p>
+          </label>
+          <input
+            class="diet"
+            type="radio"
+            name="diet"
+            id="glutenFree"
+            value="gluten-free"
+            hidden
+          />
+          <label
+            for="glutenFree"
+            class="block diet-card border-[1px] border-[#DDE1E8] bg-[#F9FBFC] rounded-med shadow-small px-[20px] pt-[16px] pb-[12px]"
+          >
+            <div class="flex items-center gap-[10px]">
+              <span
+                class="check-circle block w-[12px] h-[12px] bg-white border-[#DDE1E8] border-[.5px] rounded-full"
+              ></span>
+              <h4 class="text-[14px]">Gluten Free</h4>
+            </div>
+            <p class="text-[12px]">
+              Gluten-free means avoiding wheat, barley, and rye for people with
+              celiac disease or gluten intolerance.
+            </p>
+          </label>
+          <input
+            class="diet"
+            type="radio"
+            name="diet"
+            id="paleo"
+            value="paleo"
+            hidden
+          />
+          <label
+            for="paleo"
+            class="block diet-card border-[1px] border-[#DDE1E8] bg-[#F9FBFC] rounded-med shadow-small px-[20px] pt-[16px] pb-[12px]"
+          >
+            <div class="flex items-center gap-[10px]">
+              <span
+                class="check-circle block w-[12px] h-[12px] bg-white border-[#DDE1E8] border-[.5px] rounded-full"
+              ></span>
+              <h4 class="text-[14px]">Paleo</h4>
+            </div>
+            <p class="text-[12px]">
+              The paleo diet mimics early human eating habits, emphasizes whole
+              foods.
+            </p>
+          </label>
+          <input
+            class="diet"
+            type="radio"
+            name="diet"
+            id="ketogenic"
+            value="ketogenic"
+            hidden
+          />
+          <label
+            for="ketogenic"
+            class="block diet-card border-[1px] border-[#DDE1E8] bg-[#F9FBFC] rounded-med shadow-small px-[20px] pt-[16px] pb-[12px]"
+          >
+            <div class="flex items-center gap-[10px]">
+              <span
+                class="check-circle block w-[12px] h-[12px] bg-white border-[#DDE1E8] border-[.5px] rounded-full"
+              ></span>
+              <h4 class="text-[14px]">Ketogenic</h4>
+            </div>
+            <p class="text-[12px]">
+              A ketogenic diet is a low-carb, high-fat diet that aims to put the
+              body into a state of ketosis to burn fat for energy.
+            </p>
+          </label>
+          <input
+            class="diet"
+            type="radio"
+            name="diet"
+            id="primal"
+            value="primal"
+            hidden
+          />
+          <label
+            for="primal"
+            class="block diet-card border-[1px] border-[#DDE1E8] bg-[#F9FBFC] rounded-med shadow-small px-[20px] pt-[16px] pb-[12px]"
+          >
+            <div class="flex items-center gap-[10px]">
+              <span
+                class="check-circle block w-[12px] h-[12px] bg-white border-[#DDE1E8] border-[.5px] rounded-full"
+              ></span>
+              <h4 class="text-[14px]">Primal</h4>
+            </div>
+            <p class="text-[12px]">
+              The primal diet is similar to the paleo diet, emphasizing whole
+              foods and natural, unprocessed ingredients.
+            </p>
+          </label>
+          <input
+            class="diet"
+            type="radio"
+            name="diet"
+            id="lactoVegetarian"
+            value="lacto-vegetarian"
+            hidden
+          />
+          <label
+            for="lactoVegetarian"
+            class="block diet-card border-[1px] border-[#DDE1E8] bg-[#F9FBFC] rounded-med shadow-small px-[20px] pt-[16px] pb-[12px]"
+          >
+            <div class="flex items-center gap-[10px]">
+              <span
+                class="check-circle block w-[12px] h-[12px] bg-white border-[#DDE1E8] border-[.5px] rounded-full"
+              ></span>
+              <h4 class="text-[14px]">Lacto-Vegetarian</h4>
+            </div>
+            <p class="text-[12px]">
+              Lacto-vegetarianism is a vegetarian diet that includes dairy
+              products, but no meat, fish, eggs, or poultry.
+            </p>
+          </label>
+          <input
+            class="diet"
+            type="radio"
+            name="diet"
+            id="lowFODMAP"
+            value="low-fodmap"
+            hidden
+          />
+          <label
+            for="lowFODMAP"
+            class="block diet-card border-[1px] border-[#DDE1E8] bg-[#F9FBFC] rounded-med shadow-small px-[20px] pt-[16px] pb-[12px]"
+          >
+            <div class="flex items-center gap-[10px]">
+              <span
+                class="check-circle block w-[12px] h-[12px] bg-white border-[#DDE1E8] border-[.5px] rounded-full"
+              ></span>
+              <h4 class="text-[14px]">Low FODMAP</h4>
+            </div>
+            <p class="text-[12px]">
+              A low FODMAP diet is designed to alleviate digestive symptoms in
+              people with IBS, avoiding certain carbohydrates.
+            </p>
+          </label>
+        </fieldset>
+      </form>
+      <div
+        class="bg-[#fff] shadow-small border-[1px] border-[#DBDBDB] rounded-med other-diets px-[10px]"
+      >
+        <h4 class="text-[14px] pt-[30px] mb-[60px] text-center">
+          Type in any other restrictions you may have
+        </h4>
+        <form class=" other-restrictions-form relative w-[345px] max-w-full mx-auto mb-[60px]" action="">
+          <input
+            class="other-restrictions-input block bg-[#F9F9F9F9] border-[1px] w-full text-[14px] py-[4px] pl-[8px] outline-none border-[#DBDBDB] rounded-[3px]"
+            type="text"
+            placeholder="Start typing..."
+          />
+          <button
+            class= "other-restrictions-btn absolute text-whiteFull flex items-center justify-center top-0 right-0 h-full text-[12px] py-[7px] px-[16px] rounded-r-[3px] bg-primary"
+          >
+            Add
+          </button>
+        </form>
+        <div class="w-[345px] max-w-full mx-auto">
+          <h4
+            class="text-xs border-b-[1.4px] border-[#DBDBDB] pb-[4px] mb-[20px]"
+          >
+            Selected restrictions
+          </h4>
+          <div
+            class="selected-restrictions rounded-med max-h-[335px] overflow-y-scroll bg-gray-100 border-[1px] border-[#DBDBDB] p-[10px] mb-[80px]"
+          >
+            <div
+              class="flex justify-between px-[12px] py-[6px] text-whiteFull items-center bg-otherRestrictions"
+            >
+              <span class="text-[12px]">Peanuts</span>
+              <span class="text-[8px]">X</span>
+            </div>
+            <div
+              class="flex justify-between px-[12px] py-[6px] text-whiteFull items-center bg-otherRestrictions"
+            >
+              <span class="text-[12px]">Peanuts</span>
+              <span class="text-[8px]">X</span>
+            </div>
+            <div
+              class="flex justify-between px-[12px] py-[6px] text-whiteFull items-center bg-otherRestrictions"
+            >
+              <span class="text-[12px]">Peanuts</span>
+              <span class="text-[8px]">X</span>
+            </div>
+            <div
+              class="flex justify-between px-[12px] py-[6px] text-whiteFull items-center bg-otherRestrictions"
+            >
+              <span class="text-[12px]">Peanuts</span>
+              <span class="text-[8px]">X</span>
+            </div>
+            <div
+              class="flex justify-between px-[12px] py-[6px] text-whiteFull items-center bg-otherRestrictions"
+            >
+              <span class="text-[12px]">Peanuts</span>
+              <span class="text-[8px]">X</span>
+            </div>
+          </div>
+          <button
+            class="block w-[140px] text-[12px] bg-btnBlue rounded-med py-[4px] text text-whiteFull mx-auto mb-[10px]"
+          >
+            Save
+          </button>
+        </div>
+      </div>
+      <div
+        class="bg-[#fff] shadow-small border-[1px] border-[#DBDBDB] rounded-med current-diets px-[10px]"
+      >
+        <h4 class="text-[14px] pt-[30px] mb-[60px] text-center">
+          Your current restrictions
+        </h4>
+
+        <div class="w-[345px] max-w-full mx-auto mb-[60px]">
+          <h4
+            class="text-xs border-b-[1.4px] border-[#DBDBDB] pb-[4px] mb-[20px]"
+          >
+            Dietary
+          </h4>
+          <div
+            class="selected-restrictions rounded-med max-h-[335px] border-[#DBDBDB]"
+          >
+            <div
+              class="flex justify-between w-[150px] px-[12px] py-[6px] text-black items-center bg-vegetarian"
+            >
+              <span class="current-diet text-[12px]">Vegetarin</span>
+              <span class="text-[8px]">X</span>
+            </div>
+          </div>
+        </div>
+        <div class="w-[345px] max-w-full mx-auto">
+          <h4
+            class="text-xs border-b-[1.4px] border-[#DBDBDB] pb-[4px] mb-[20px]"
+          >
+            Others
+          </h4>
+          <div
+            class="selected-restrictions rounded-med max-h-[335px] overflow-y-scroll bg-gray-100 border-[1px] border-[#DBDBDB] p-[10px]"
+          >
+            <div
+              class="flex justify-between px-[12px] py-[6px] text-whiteFull items-center bg-otherRestrictions"
+            >
+              <span class="text-[12px]">Peanuts</span>
+              <span class="text-[8px]">X</span>
+            </div>
+            <div
+              class="flex justify-between px-[12px] py-[6px] text-whiteFull items-center bg-otherRestrictions"
+            >
+              <span class="text-[12px]">Peanuts</span>
+              <span class="text-[8px]">X</span>
+            </div>
+            <div
+              class="flex justify-between px-[12px] py-[6px] text-whiteFull items-center bg-otherRestrictions"
+            >
+              <span class="text-[12px]">Peanuts</span>
+              <span class="text-[8px]">X</span>
+            </div>
+            <div
+              class="flex justify-between px-[12px] py-[6px] text-whiteFull items-center bg-otherRestrictions"
+            >
+              <span class="text-[12px]">Peanuts</span>
+              <span class="text-[8px]">X</span>
+            </div>
+            <div
+              class="flex justify-between px-[12px] py-[6px] text-whiteFull items-center bg-otherRestrictions"
+            >
+              <span class="text-[12px]">Peanuts</span>
+              <span class="text-[8px]">X</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
   </body>
   <script src="../assets/js/restrictionsPage.js" type="module"></script>
+  <script src="../helpers/mobileNav.js" type="module"></script>
 </html>

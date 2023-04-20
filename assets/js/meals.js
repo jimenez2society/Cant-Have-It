@@ -1,8 +1,9 @@
 import { mealsCard } from "../../helpers/mealsCard.js";
 import { SPOONACULAR_API_KEY } from "../../util/keys.js";
 var currentApiInfoBulk = JSON.parse(localStorage.getItem("currentApiInfoBulk"));
-
-
+let currentRestrictionsList = document.querySelector(
+  ".currentRestrictionsList"
+);
 let url = "";
 
 let allOptions = JSON.parse(localStorage.getItem("options"));
@@ -12,13 +13,18 @@ let prevExcluded = JSON.parse(localStorage.getItem("previousExcludedItems"));
 
 let { pendingRequest, dietaryRestrictions, excludedItems } = allOptions;
 let count = 20;
-let excludedChanged
+let excludedChanged;
 
-excludedItems.map((item) => {
-  excludedChanged = !prevExcluded.includes(item)
-  return excludedChanged
-}).every(Boolean);
-console.log(excludedChanged)
+excludedItems
+  .map((item) => {
+    excludedChanged = !prevExcluded?.includes(item);
+    console.log(excludedChanged);
+    return excludedChanged;
+  })
+  .every(Boolean);
+if (excludedItems.length <= 0 && prevExcluded) {
+  excludedChanged = true;
+}
 
 if (
   !currentApiInfoBulk ||
@@ -32,23 +38,10 @@ if (
       previousRestrictions: dietaryRestrictions,
     })
   );
-  localStorage.setItem(
-    "previousExcludedItems",
-    JSON.stringify(excludedItems)
-  );
-  if (
-
-    pendingRequest &&
-    !dietaryRestrictions &&
-    !excludedItems?.length
-  ) {
+  localStorage.setItem("previousExcludedItems", JSON.stringify(excludedItems));
+  if (pendingRequest && !dietaryRestrictions && !excludedItems?.length) {
     url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${SPOONACULAR_API_KEY}&query=${pendingRequest}&number=${count}`;
-
-  } else if (
-    pendingRequest &&
-    dietaryRestrictions &&
-    !excludedItems?.length
-  ) {
+  } else if (pendingRequest && dietaryRestrictions && !excludedItems?.length) {
     url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${SPOONACULAR_API_KEY}&query=${pendingRequest}&diet=${dietaryRestrictions}&number=${count}`;
   } else if (
     pendingRequest &&
@@ -63,24 +56,15 @@ if (
       "&excludeIngredients=" +
       excludedItems +
       `&number=${count}`;
-  } else if (
-    pendingRequest &&
-    dietaryRestrictions &&
-    excludedItems
-  ) {
-    url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${SPOONACULAR_API_KEY}&query=${pendingRequest}&diet=${dietaryRestrictions}&excludedIngredients=${excludedItems.join(
+  } else if (pendingRequest && dietaryRestrictions && excludedItems) {
+    url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${SPOONACULAR_API_KEY}&query=${pendingRequest}&diet=${dietaryRestrictions}&excludeIngredients=${excludedItems.join(
       ","
     )}&number=${count}`;
-  } else if (
-    !pendingRequest &&
-    !dietaryRestrictions &&
-    excludedItems
-  ) {
-    url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${SPOONACULAR_API_KEY}&excludedIngredients=${excludedItems.join(
+  } else if (!pendingRequest && !dietaryRestrictions && excludedItems) {
+    url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${SPOONACULAR_API_KEY}&excludeIngredients=${excludedItems.join(
       ","
     )}&number=${count}`;
   }
-
 
   if (
     !currentApiInfoBulk ||
@@ -90,7 +74,8 @@ if (
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        console.log("Made a request")
+        console.log(url);
+        console.log("Made a request");
         let idList = "";
         for (let i = 0; i < data.results.length; i++) {
           const id = data.results[i].id;
@@ -126,7 +111,9 @@ if (
               localStorage.getItem("currentApiInfoBulk")
             );
             let idToCompare = Number(e.target.id);
-            let foundData = dataToSearch.find((item) => item.id === idToCompare);
+            let foundData = dataToSearch.find(
+              (item) => item.id === idToCompare
+            );
             foundData.isSaved = true;
             let prevSavedData = JSON.parse(localStorage.getItem("savedData"));
             let dataExists = prevSavedData?.find(
@@ -151,7 +138,7 @@ if (
         console.error(error);
       });
   }
-};
+}
 
 let bulkInfo = JSON.parse(localStorage.getItem("currentApiInfoBulk"));
 

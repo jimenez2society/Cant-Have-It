@@ -112,7 +112,7 @@
               ></span>
               <h4 class="text-[14px]">Vegetarian</h4>
             </div>
-            <p class="text-[12px]">
+            <p class="text-[12px] ">
               A vegetarian is someone who doesn't eat meat or animal flesh,
               often for ethical, health, or environmental reasons.
             </p>
@@ -334,63 +334,38 @@
         <h4 class="text-[14px] pt-[30px] mb-[60px] text-center">
           Type in any other restrictions you may have
         </h4>
-        <form class=" other-restrictions-form relative w-[345px] max-w-full mx-auto mb-[60px]" action="">
+        <form
+          class="other-restrictions-form relative w-[345px] max-w-full mx-auto mb-[60px]"
+          action=""
+        >
           <input
             class="other-restrictions-input block bg-[#F9F9F9F9] border-[1px] w-full text-[14px] py-[4px] pl-[8px] outline-none border-[#DBDBDB] rounded-[3px]"
             type="text"
             placeholder="Start typing..."
           />
           <button
-            class= "other-restrictions-btn absolute text-whiteFull flex items-center justify-center top-0 right-0 h-full text-[12px] py-[7px] px-[16px] rounded-r-[3px] bg-primary"
+            class="other-restrictions-btn absolute text-whiteFull flex items-center justify-center top-0 right-0 h-full text-[12px] py-[7px] px-[16px] rounded-r-[3px] bg-primary"
           >
             Add
           </button>
         </form>
-        <div class="w-[345px] max-w-full mx-auto">
+        <div class="relative w-[345px] max-w-full mx-auto">
           <h4
             class="text-xs border-b-[1.4px] border-[#DBDBDB] pb-[4px] mb-[20px]"
           >
             Selected restrictions
           </h4>
+
           <div
             class="selected-restrictions rounded-med max-h-[335px] overflow-y-scroll bg-gray-100 border-[1px] border-[#DBDBDB] p-[10px] mb-[80px]"
           >
-            <div
-              class="flex justify-between px-[12px] py-[6px] text-whiteFull items-center bg-otherRestrictions"
-            >
-              <span class="text-[12px]">Peanuts</span>
-              <span class="text-[8px]">X</span>
-            </div>
-            <div
-              class="flex justify-between px-[12px] py-[6px] text-whiteFull items-center bg-otherRestrictions"
-            >
-              <span class="text-[12px]">Peanuts</span>
-              <span class="text-[8px]">X</span>
-            </div>
-            <div
-              class="flex justify-between px-[12px] py-[6px] text-whiteFull items-center bg-otherRestrictions"
-            >
-              <span class="text-[12px]">Peanuts</span>
-              <span class="text-[8px]">X</span>
-            </div>
-            <div
-              class="flex justify-between px-[12px] py-[6px] text-whiteFull items-center bg-otherRestrictions"
-            >
-              <span class="text-[12px]">Peanuts</span>
-              <span class="text-[8px]">X</span>
-            </div>
-            <div
-              class="flex justify-between px-[12px] py-[6px] text-whiteFull items-center bg-otherRestrictions"
-            >
-              <span class="text-[12px]">Peanuts</span>
-              <span class="text-[8px]">X</span>
-            </div>
+            <span class="emptyTitle text-[10px]">No restrictions</span>
           </div>
-          <button
-            class="block w-[140px] text-[12px] bg-btnBlue rounded-med py-[4px] text text-whiteFull mx-auto mb-[10px]"
+          <a
+            class="save-restrictions block w-[140px] text-[11px] hover:bg-primary hover:text-white transition-[.2s] rounded-med py-[4px] px-[2px] text-center text text-primary border-[1px] border-primary mx-auto mb-[10px] cursor-pointer"
           >
-            Save
-          </button>
+            Save & Continue search
+          </a>
         </div>
       </div>
       <div
@@ -410,53 +385,40 @@
             class="selected-restrictions rounded-med max-h-[335px] border-[#DBDBDB]"
           >
             <div
-              class="flex justify-between w-[150px] px-[12px] py-[6px] text-black items-center bg-vegetarian"
+              class="current-diet-container flex justify-between w-[150px] px-[12px] py-[6px] bg-primary text-white items-center "
             >
-              <span class="current-diet text-[12px]">Vegetarin</span>
-              <span class="text-[8px]">X</span>
+              <span class="current-diet text-[12px] "></span>
+              
+            
             </div>
           </div>
         </div>
-        <div class="w-[345px] max-w-full mx-auto">
-          <h4
-            class="text-xs border-b-[1.4px] border-[#DBDBDB] pb-[4px] mb-[20px]"
-          >
-            Others
+        <div class="w-[80%] mx-auto">
+          <h4 class="text-center text-[12px] bg-yellow-100 py-[5px] mb-[14px]">
+            Disclaimer
           </h4>
-          <div
-            class="selected-restrictions rounded-med max-h-[335px] overflow-y-scroll bg-gray-100 border-[1px] border-[#DBDBDB] p-[10px]"
-          >
-            <div
-              class="flex justify-between px-[12px] py-[6px] text-whiteFull items-center bg-otherRestrictions"
-            >
-              <span class="text-[12px]">Peanuts</span>
-              <span class="text-[8px]">X</span>
-            </div>
-            <div
-              class="flex justify-between px-[12px] py-[6px] text-whiteFull items-center bg-otherRestrictions"
-            >
-              <span class="text-[12px]">Peanuts</span>
-              <span class="text-[8px]">X</span>
-            </div>
-            <div
-              class="flex justify-between px-[12px] py-[6px] text-whiteFull items-center bg-otherRestrictions"
-            >
-              <span class="text-[12px]">Peanuts</span>
-              <span class="text-[8px]">X</span>
-            </div>
-            <div
-              class="flex justify-between px-[12px] py-[6px] text-whiteFull items-center bg-otherRestrictions"
-            >
-              <span class="text-[12px]">Peanuts</span>
-              <span class="text-[8px]">X</span>
-            </div>
-            <div
-              class="flex justify-between px-[12px] py-[6px] text-whiteFull items-center bg-otherRestrictions"
-            >
-              <span class="text-[12px]">Peanuts</span>
-              <span class="text-[8px]">X</span>
-            </div>
-          </div>
+          <p class="text-[8px] text-gray-500 text-justify">
+            Please be aware that recipe search engines and websites may not
+            always be 100% accurate in identifying recipes that meet your
+            specific dietary restrictions. While these sites typically allow you
+            to filter recipes by certain criteria, such as gluten-free or vegan,
+            there may be some recipes that slip through the cracks or are
+            mislabeled. It is important to always double-check the ingredients
+            and nutritional information of any recipe you choose to make,
+            especially if you have food allergies or sensitivities.
+            Additionally, it is always a good idea to consult with a qualified
+            healthcare professional or registered dietitian before making any
+            major changes to your diet.
+          </p>
+          <div class="flex mt-[100px] items-center justify-center text-[8px] text-gray-500">
+            <p>©2021-2023 Can't Have</p>
+            <img
+              class="w-[8px] h-[8px]"
+              src="../assets/svg/itSmallLogoDark.svg"
+              alt=""
+            />
+            <p>. All Rights Reserved</p>
+          </p>
         </div>
       </div>
     </main>

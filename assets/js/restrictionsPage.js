@@ -1,24 +1,39 @@
-// get user restrictions info
-//sets the ingredientsFormRestrictionsPage variable to a form from the restirctions page html
 let options = JSON.parse(localStorage.getItem("options"));
 let currentDietTag = document.querySelector(".current-diet");
-let otherResrictionsInput = document.querySelector(".other-restrictions-input")
-let otherResrictionsBtn = document.querySelector(".other-restrictions-btn")
-let otherResrictionsForm = document.querySelector(".other-restrictions-form")
-otherResrictionsForm.addEventListener("submit", function(e){
-  e.preventDefault()
+let otherResrictionsInput = document.querySelector(".other-restrictions-input");
+let otherResrictionsBtn = document.querySelector(".other-restrictions-btn");
+let otherResrictionsForm = document.querySelector(".other-restrictions-form");
+let emptyTitle = document.querySelector(".emptyTitle");
+let deleteDiet = document.querySelector(".delete-diet");
+let saveBtn = document.querySelector(".save-restrictions");
+
+saveBtn.addEventListener("click", (e) => {
+  location.pathname = "/pages/meals.html";
+});
+if (options.excludedItems && options.excludedItems.length > 0) {
+  emptyTitle.setAttribute("hidden", true);
+}
+otherResrictionsForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+  emptyTitle.setAttribute("hidden", true);
+
   let previousOptions = JSON.parse(localStorage.getItem("options"));
-  if (previousOptions.excludedItems){
-    previousOptions.excludedItems.push(otherResrictionsInput.value)
-    localStorage.setItem("options", JSON.stringify(previousOptions))
+  if (previousOptions?.excludedItems) {
+    if (previousOptions.excludedItems.includes(otherResrictionsInput.value)) {
+      alert("already exists");
+      return;
+    }
+    previousOptions.excludedItems.push(otherResrictionsInput.value);
+    localStorage.setItem("options", JSON.stringify(previousOptions));
+
+    createTag(otherResrictionsInput.value, false);
   } else {
-    previousOptions.excludedItems = [otherResrictionsInput.value]
-    localStorage.setItem("options", JSON.stringify(previousOptions))
+    previousOptions.excludedItems = [otherResrictionsInput.value];
+    localStorage.setItem("options", JSON.stringify(previousOptions));
+    createTag(otherResrictionsInput.value, false);
   }
-  console.log(otherResrictionsInput.value)
-  
-}) 
-console.log(otherResrictionsInput)
+  otherResrictionsInput.value = "";
+});
 const dietToId = (diet) => {
   console.log(diet);
   if (diet.split("-")) {
@@ -34,46 +49,17 @@ const dietToId = (diet) => {
   }
   return diet;
 };
-if (options.dietaryRestrictions) {
+if (options?.dietaryRestrictions) {
   let id = dietToId(options.dietaryRestrictions);
-  console.log(id);
   let currentDiet = document.querySelector(`#${id}`);
-  console.log({ currentDiet });
-
   currentDietTag.textContent = options.dietaryRestrictions;
+
   currentDiet.checked = true;
 }
-// let fakeRestrictionsData = {
-//   // ...options,
-//   excludedItems: ["onions", "chicken"],
-//   // dietaryRestrictions: "vegetarian",
-// };
-// console.log({ fakeRestrictionsData });
-// localStorage.setItem("options", JSON.stringify(fakeRestrictionsData));
-// let ingredientsFormRestrictionsPage = document.querySelector(
-//   "#restrictions-page__restricted-ingredients-form"
-// );
-// //sets the value of variable restrictedIngredients to that of user input within the html of restrictions page
-// let restrictedIngredients = document.querySelector(
-//   `input[name="restrictedIngredients"]`
-// );
-// //adds event listener to restrictions page for excluded ingredients
-// ingredientsFormRestrictionsPage.addEventListener("submit", (e) => {
-//   e.preventDefault();
-//   //Split the input value into an array of ingredients
-//   let formData = restrictedIngredients.value.split(" ");
-//   //join the array as a comma seperated list
-//   let finalizedData = formData.length > 1 ? formData.join(",") : formData[0];
-//   //save the items to local storage
-//   localStorage.setItem("excludedItems", finalizedData);
-// });
-// // not sure how the page for restricted diets is going to be set up yet but the local storage variable should be named dietaryRestrictions and should be assigned a value later
-// localStorage.setItem("dietaryRestrictions", value);
 let restrictionElements = Array.from(document.querySelectorAll(".diet"));
 
 restrictionElements.forEach((el) => {
   el.addEventListener("click", (e) => {
-    console.log("CLICKED");
     if (e.target.checked) {
       currentDietTag.textContent = e.target.value;
       let optionsWithRestrictions = {
@@ -85,4 +71,48 @@ restrictionElements.forEach((el) => {
     }
   });
 });
-console.log(restrictionElements);
+
+const createTag = (itemName) => {
+  let selectedRestrictions = document.querySelector(".selected-restrictions");
+  let title = document.createElement("span");
+
+  if (itemName) {
+    let container = document.createElement("div");
+    let exit = document.createElement("span");
+    exit.id = itemName;
+
+    container.className = `${itemName} flex justify-between px-[12px] py-[6px] text-whiteFull items-center bg-otherRestrictions`;
+    title.className = ` text-[12px]`;
+
+    title.textContent = itemName;
+    exit.className = "text-[8px] p-[5px] excludedItemsDelete";
+    exit.textContent = "X";
+    exit.style.cursor = "pointer";
+
+    exit.addEventListener("click", (e) => {
+      let updatedOptions = {
+        ...options,
+        excludedItems: JSON.parse(
+          localStorage.getItem("options")
+        ).excludedItems.filter((item) => item !== e.target.id),
+      };
+
+      console.log(updatedOptions.excludedItems.length);
+
+      document.querySelector(`.${e.target.id}`).remove();
+      if (updatedOptions.excludedItems.length === 0) {
+        emptyTitle.removeAttribute("hidden");
+      }
+      localStorage.setItem("options", JSON.stringify(updatedOptions));
+    });
+
+    container.appendChild(title);
+    container.appendChild(exit);
+    selectedRestrictions.appendChild(container);
+  }
+};
+createTag();
+options?.excludedItems &&
+  options?.excludedItems.forEach((item) => {
+    createTag(item, false);
+  });

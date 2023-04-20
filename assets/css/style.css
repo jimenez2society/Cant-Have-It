@@ -952,6 +952,11 @@ video {
   border-color: rgb(64 140 255 / var(--tw-border-opacity));
 }
 
+.border-green-400 {
+  --tw-border-opacity: 1;
+  border-color: rgb(74 222 128 / var(--tw-border-opacity));
+}
+
 .border-primary {
   --tw-border-opacity: 1;
   border-color: rgb(249 108 68 / var(--tw-border-opacity));
@@ -1021,6 +1026,11 @@ video {
 .bg-lactoVegetarian {
   --tw-bg-opacity: 1;
   background-color: rgb(143 180 134 / var(--tw-bg-opacity));
+}
+
+.bg-otherRestrictions {
+  --tw-bg-opacity: 1;
+  background-color: rgb(195 82 20 / var(--tw-bg-opacity));
 }
 
 .bg-paleolithic {

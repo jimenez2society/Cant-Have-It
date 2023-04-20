@@ -1,5 +1,6 @@
 import { mealsCard } from "../../helpers/mealsCard.js";
 import { SPOONACULAR_API_KEY } from "../../util/keys.js";
+import { openToast } from "./toast.js";
 var currentApiInfoBulk = JSON.parse(localStorage.getItem("currentApiInfoBulk"));
 
 let url = "";
@@ -149,7 +150,6 @@ bulkInfo?.forEach((meal) => {
 let saveBtn = document.querySelectorAll(".save-btn");
 saveBtn.forEach((item) =>
   item.addEventListener("click", (e) => {
-    alert("here");
     let dataToSearch = JSON.parse(localStorage.getItem("currentApiInfoBulk"));
     let idToCompare = Number(e.target.id);
     let foundData = dataToSearch.find((item) => item.id === idToCompare);
@@ -160,6 +160,7 @@ saveBtn.forEach((item) =>
       console.log("EXITED");
       return;
     }
+    openToast("Successfully Saved ✅")
     if (prevSavedData) {
       let data = [foundData, ...prevSavedData];
       localStorage.setItem("savedData", JSON.stringify(data));

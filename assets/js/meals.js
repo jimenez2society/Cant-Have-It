@@ -14,20 +14,26 @@ let { pendingRequest, dietaryRestrictions, excludedItems } = allOptions;
 let count = 20;
 if (!excludedItems) {
   excludedItems = [];
-};
+}
 let excludedChanged;
-
-excludedItems
-  .map((item) => {
-    excludedChanged = !prevExcluded?.includes(item);
-    console.log(excludedChanged);
-    return excludedChanged;
-  })
-  .every(Boolean);
-if (excludedItems.length <= 0 && prevExcluded) {
-  excludedChanged = true;
+if (excludedItems &&  prevExcluded) {
+  excludedItems
+    .map((item) => {
+      excludedChanged = !prevExcluded?.includes(item);
+      console.log(excludedChanged);
+      return excludedChanged;
+    })
+    .every(Boolean);
 }
 
+// if (excludedItems && excludedItems.length <= 0 && prevExcluded) {
+//   excludedChanged = true;
+// }
+console.log(
+  !currentApiInfoBulk,
+  dietaryRestrictions !== prevDiet.previousRestrictions,
+  excludedChanged
+);
 if (
   !currentApiInfoBulk ||
   dietaryRestrictions !== prevDiet.previousRestrictions ||
@@ -68,11 +74,7 @@ if (
     )}&number=${count}`;
   }
 
-  if (
-    !currentApiInfoBulk ||
-    dietaryRestrictions !== prevDiet.previousRestrictions ||
-    excludedChanged
-  ) {
+  
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
@@ -140,7 +142,7 @@ if (
         console.error(error);
       });
   }
-}
+
 
 let bulkInfo = JSON.parse(localStorage.getItem("currentApiInfoBulk"));
 
@@ -160,7 +162,7 @@ saveBtn.forEach((item) =>
       console.log("EXITED");
       return;
     }
-    openToast("Successfully Saved ✅")
+    openToast("Successfully Saved ✅");
     if (prevSavedData) {
       let data = [foundData, ...prevSavedData];
       localStorage.setItem("savedData", JSON.stringify(data));

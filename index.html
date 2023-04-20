@@ -1,250 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="manifest" href="/manifest.json" />
-    <link
-      rel="icon"
-      type="image/svg"
-      sizes="16x16"
-      href="/assets/favicon16x16.svg"
-    />
-    <link
-      rel="apple-touch-icon"
-      href="./assets/favicon16x16.svg"
-      sizes="16x16"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Open+Sans:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <title>Can't Have It</title>
-    <link rel="icon" type="image/svg+xml" href="./assets/favicon16x16.svg" />
-  </head>
-  <body
-    class="container-body min-h-screen bg-gradient bg-cover px-[60px] relative"
-  >
-    <!-- used to keep most of the styles loaded from tailwind -->
-    <span
-      class="block hidden bg-otherRestrictions text-center relative w-[224px] hover:scale-[1.02] transition-[.2s] mb-[6px] h-[230px] text-[12px] bg-veryPopular bg-primal bg-ketogenic bg-lactoVegetarian bg-paleolithic bg-lactoOvo bg-primary bg-secondary bg-btnBlue bg-whiteFull bg-inputBg bg-backdrop bg-whitePlaceholder bg-whiteFaded bg-whiteTransparent bg-vegetarian bg-vegan bg-glutenFree bg-popular bg-cheap bg-dairyFree bg-pescatarian max-w-[890px] overflow-hidden mb-[15px] text-[18px] py-[15px] pl-[20px] pr-[35px] max-w-[224px] bg- h-full object-cover gap-[30px] items-center mb-[15px gap-[8px] px-[13px] py-[5px] text-[8px]"
-    ></span>
-    <div
-      class="toast toast-close fixed right-0 top-[200px] rounded-l-[5px] bg-whiteFull h-[50px] w-3/4 sm:w-[300px] z-[2000] border-t-[8px] border-red-600 flex items-center pl-[5px] pb-[5px]"
-    >
-      <span class="toast-msg block text-[10px]"
-        >Error : Please fill in all fields</span
-      >
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="icon" type="image/svg" sizes="16x16" href="/assets/favicon16x16.svg" />
+  <link rel="apple-touch-icon" href="./assets/favicon16x16.svg" sizes="16x16" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Open+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <title>Can't Have It</title>
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon16x16.svg" />
+</head>
+
+<body class="container-body min-h-screen bg-gradient bg-cover px-[60px] relative">
+  <!-- used to keep most of the styles loaded from tailwind -->
+  <span
+    class="block hidden bg-otherRestrictions text-center relative w-[224px] hover:scale-[1.02] transition-[.2s] mb-[6px] h-[230px] text-[12px] bg-veryPopular bg-primal bg-ketogenic bg-lactoVegetarian bg-paleolithic bg-lactoOvo bg-primary bg-secondary bg-btnBlue bg-whiteFull bg-inputBg bg-backdrop bg-whitePlaceholder bg-whiteFaded bg-whiteTransparent bg-vegetarian bg-vegan bg-glutenFree bg-popular bg-cheap bg-dairyFree bg-pescatarian max-w-[890px] overflow-hidden mb-[15px] text-[18px] py-[15px] pl-[20px] pr-[35px] max-w-[224px] bg- h-full object-cover gap-[30px] items-center mb-[15px gap-[8px] px-[13px] py-[5px] text-[8px]"></span>
+  <div
+    class="toast toast-close fixed right-0 top-[200px] rounded-l-[5px] bg-whiteFull h-[50px] w-3/4 sm:w-[300px] z-[2000] border-t-[8px] border-red-600 flex items-center pl-[5px] pb-[5px]">
+    <span class="toast-msg block text-[10px]">Error : Please fill in all fields</span>
+  </div>
+  <div
+    class="modal max-w-[500px] hidden bg-whiteFull absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-70%] z-[1000] px-[35px] pt-[25px] pb-[20px] rounded-med shadow-med border-med">
+    <span class="exit-modal absolute right-[15px] top-[15px] cursor-pointer p-[5px]">
+      <img class="w-[8px] lg:w-[14px]" src="./assets/svg/exit.svg" alt="" />
+    </span>
+    <h4 class="text-[24px] mx-auto mb-[150px]">
+      It appears that you currently don't have any limitations in place. Would
+      you like to impose any restrictions?
+    </h4>
+    <div class="modal-btns text-[16px] flex justify-end w-full">
+      <a href="#" class="denyRestrictions text-center border-btnBlue border-[1px] text-btnBlue rounded-med p-[12px]">
+        NO NEED
+      </a>
+      <a href="#"
+        class="acceptRestrictions text-center ml-[10px] border-[1px] border-btnBlue bg-btnBlue text-whiteFull rounded-med py-[12px] px-[28px]">
+        TAKE ME THERE!
+      </a>
     </div>
+  </div>
+  <div class="mobile-nav mobile-nav--close shadow-med bg-whiteFull hidden fixed right-0 top-0 w-[75%] h-full z-[1000]">
     <div
-      class="modal max-w-[500px] hidden bg-whiteFull absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-70%] z-[1000] px-[35px] pt-[25px] pb-[20px] rounded-med shadow-med border-med"
-    >
-      <span
-        class="exit-modal absolute right-[15px] top-[15px] cursor-pointer p-[5px]"
-      >
-        <img class="w-[8px] lg:w-[14px]" src="./assets/svg/exit.svg" alt="" />
-      </span>
-      <h4 class="text-[24px] mx-auto mb-[150px]">
-        It appears that you currently don't have any limitations in place. Would
-        you like to impose any restrictions?
-      </h4>
-      <div class="modal-btns text-[16px] flex justify-end w-full">
-        <a
-          href="#"
-          class="denyRestrictions text-center border-btnBlue border-[1px] text-btnBlue rounded-med p-[12px]"
-        >
-          NO NEED
-        </a>
-        <a
-          href="#"
-          class="acceptRestrictions text-center ml-[10px] border-[1px] border-btnBlue bg-btnBlue text-whiteFull rounded-med py-[12px] px-[28px]"
-        >
-          TAKE ME THERE!
-        </a>
-      </div>
+      class="exit-mobile-nav flex items-center justify-center h-max w-max cursor-pointer mt-[20px] ml-[20px] mb-[90px]">
+      <img class="w-[10px] h-[10px]" src="./assets/svg/exit.svg" alt="exit img for mobile navigation" />
     </div>
-    <div
-      class="mobile-nav mobile-nav--close shadow-med bg-whiteFull hidden fixed right-0 top-0 w-[75%] h-full z-[1000]"
-    >
-      <div
-        class="exit-mobile-nav flex items-center justify-center h-max w-max cursor-pointer mt-[20px] ml-[20px] mb-[90px]"
-      >
-        <img
-          class="w-[10px] h-[10px]"
-          src="./assets/svg/exit.svg"
-          alt="exit img for mobile navigation"
-        />
-      </div>
-      <ul class="px-[25px] flex flex-col gap-[7px]">
-        <li>
-          <a
-            class="w-full py-[7px] px-[10px] rounded-med hover:bg-gray-100 block text-[12px]"
-            href="/pages/restrictions.html"
-            >Restrictions</a
-          >
+    <ul class="px-[25px] flex flex-col gap-[7px]">
+      <li>
+        <a class="w-full py-[7px] px-[10px] rounded-med hover:bg-gray-100 block text-[12px]"
+          href="/pages/news.html">News</a>
+      </li>
+      <li>
+        <a class="w-full py-[7px] px-[10px] rounded-med hover:bg-gray-100 block text-[12px]"
+          href="/pages/restrictions.html">Restrictions</a>
+      </li>
+      <li>
+        <a class="w-full py-[7px] px-[10px] rounded-med hover:bg-gray-100 block text-[12px]"
+          href="/pages/saved-meals.html">Saved meals</a>
+      </li>
+      <li>
+        <a class="w-full py-[7px] px-[10px] rounded-med hover:bg-gray-100 block text-[12px]" href="#">Get more
+          recipes</a>
+      </li>
+    </ul>
+  </div>
+  <div class="backdrop z-[999] hidden bg-backdrop min-w-full min-h-full absolute left-0"></div>
+  <header class="main-header flex items-center justify-between pt-[50px] mb-[60px] relative">
+    <span class="logo">
+      <img src="./assets/svg/mainCantHaveItLogo.svg" alt="Can't have it logo" />
+    </span>
+    <span class="logo-sm hidden absolute top-[50%]">
+      <img src="./assets/svg/itSmallScreenLogo.svg" alt="Can't have it logo" />
+    </span>
+    <span id="nav-toggler" class="hidden">
+      <img src="./assets/svg/hamburger-CHI.svg" alt="" />
+    </span>
+    <nav class="main-nav">
+      <ul class="flex gap-[60px] items-center text-[18px]">
+        <li class="text-secondary">
+          <a href="/pages/news.html">News</a>
         </li>
-        <li>
-          <a
-            class="w-full py-[7px] px-[10px] rounded-med hover:bg-gray-100 block text-[12px]"
-            href="/pages/saved-meals.html"
-            >Saved meals</a
-          >
+        <li class="text-secondary">
+          <a href="/pages/restrictions.html">Restrictions</a>
         </li>
-        <li>
-          <a
-            class="w-full py-[7px] px-[10px] rounded-med hover:bg-gray-100 block text-[12px]"
-            href="#"
-            >Get more recipes</a
-          >
+        <li class="text-secondary">
+          <a href="/pages/save-meals.html">Saved Meals</a>
+        </li>
+        <li class="text-secondary">
+          <a class="bg-whiteTransparent hover:bg-whiteFaded transition-[.2s] py-[15px] px-[17px] rounded-med"
+            href="#">Get more recipes</a>
         </li>
       </ul>
+    </nav>
+  </header>
+  <main class="main">
+    <div class="text-whiteFull text-center mb-[65px]">
+      <h1 class="main-heading font-cormorant text-[96px] leading-[116px]">
+        Discover
+      </h1>
+      <h2 class="main-subheading text-[24px] tracking-[0.285em] leading-[33px]">
+        your tailored meal
+      </h2>
     </div>
-    <div
-      class="backdrop z-[999] hidden bg-backdrop min-w-full min-h-full absolute left-0"
-    ></div>
-    <header
-      class="main-header flex items-center justify-between pt-[50px] mb-[60px] relative"
-    >
-      <span class="logo">
-        <img
-          src="./assets/svg/mainCantHaveItLogo.svg"
-          alt="Can't have it logo"
-        />
-      </span>
-      <span class="logo-sm hidden absolute top-[50%]">
-        <img
-          src="./assets/svg/itSmallScreenLogo.svg"
-          alt="Can't have it logo"
-        />
-      </span>
-      <span id="nav-toggler" class="hidden">
-        <img src="./assets/svg/hamburger-CHI.svg" alt="" />
-      </span>
-      <nav class="main-nav">
-        <ul class="flex gap-[60px] items-center text-[18px]">
-          <li class="text-secondary">
-            <a href="/pages/restrictions.html">Restrictions</a>
-          </li>
-          <li class="text-secondary">
-            <a href="/pages/save-meals.html">Saved Meals</a>
-          </li>
-          <li class="text-secondary">
-            <a
-              class="bg-whiteTransparent hover:bg-whiteFaded transition-[.2s] py-[15px] px-[17px] rounded-med"
-              href="#"
-              >Get more recipes</a
-            >
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <main class="main">
-      <div class="text-whiteFull text-center mb-[65px]">
-        <h1 class="main-heading font-cormorant text-[96px] leading-[116px]">
-          Discover
-        </h1>
-        <h2
-          class="main-subheading text-[24px] tracking-[0.285em] leading-[33px]"
-        >
-          your tailored meal
-        </h2>
-      </div>
-      <form
-        id="main-page__ingredients-form"
-        class="mx-auto w-[650px] max-w-full relative mb-[133px]"
-      >
-        <input
-          id="main-page__ingredients-input"
-          name="ingredients"
-          type="text"
-          class="w-full bg-whiteTransparent outline-none text-whiteFull placeholder:text-whitePlaceholder px-[25px] py-[12px] rounded-full"
-          placeholder="Start typing ingredients..."
-          value=""
-        />
-        <button
-          id="main-page__ingredients-btn"
-          type="submit"
-          class="p-[5px] absolute right-0 top-[50%] translate-y-[-50%] translate-x-[-25px]"
-        >
-          <img src="./assets/svg/inputArrow.svg" alt="" />
-        </button>
-      </form>
-      <footer class="flex flex-col items-center pb-[10px] w-full">
-        <div
-          class="card-container grid grid-cols-4 gap-[60px] w-full justify-between"
-        >
-          <div
-            class="px-[18px] w-full pb-[40px] bg-whiteTransparent rounded-[10px] min-h-[300px]"
-          >
-            <span
-              ><img
-                src="./assets/svg/smileHeart.svg"
-                class="mx-auto mt-[60px] mb-[40px]"
-                alt=""
-            /></span>
-            <p class="text-[16px] text-whiteFull leading-[25.76px]">
-              At Can't Have It, we understand that everyone's dietary needs are
-              unique. Whether you have specific sensitivities or just don't
-              enjoy certain foods, we offer a solution that lets you tailor your
-              meals to your preferences.
-            </p>
-          </div>
-          <div
-            class="px-[18px] w-full pb-[40px] bg-whiteTransparent rounded-[10px] min-h-[300px]"
-          >
-            <span
-              ><img
-                src="./assets/svg/time.svg"
-                class="mx-auto mt-[60px] mb-[40px]"
-                alt=""
-            /></span>
-            <p class="text-[16px] text-whiteFull leading-[25.76px]">
-              With our service, you can choose your restrictions, and we'll take
-              care of the rest. No longer will you have to spend hours searching
-              for recipes that exclude certain ingredients
-            </p>
-          </div>
-          <div
-            class="px-[18px] w-full pb-[40px] bg-whiteTransparent rounded-[10px] min-h-[300px]"
-          >
-            <span
-              ><img
-                src="./assets/svg/plate.svg"
-                class="mx-auto mt-[60px] mb-[40px]"
-                alt=""
-            /></span>
-            <p class="text-[16px] text-whiteFull leading-[25.76px]">
-              Can't Have It makes meal planning easy. Just enter your ingredient
-              restrictions, and our system will exclude those ingredients from
-              recipe searches. Enjoy personalized, hassle-free meal planning
-              with Can't Have It
-            </p>
-          </div>
-          <div
-            class="px-[18px] w-full pb-[40px] bg-whiteTransparent rounded-[10px] min-h-[400px]"
-          >
-            <span
-              ><img
-                src="./assets/svg/thinking.svg"
-                class="mx-auto mt-[60px] mb-[40px]"
-                alt=""
-            /></span>
-            <p class="text-[16px] text-whiteFull leading-[25.76px]">
-              Can't Have It remembers your preferences, so you can focus on
-              enjoying delicious, personalized meals.
-            </p>
-          </div>
+    <form id="main-page__ingredients-form" class="mx-auto w-[650px] max-w-full relative mb-[133px]">
+      <input id="main-page__ingredients-input" name="ingredients" type="text"
+        class="w-full bg-whiteTransparent outline-none text-whiteFull placeholder:text-whitePlaceholder px-[25px] py-[12px] rounded-full"
+        placeholder="Start typing ingredients..." value="" />
+      <button id="main-page__ingredients-btn" type="submit"
+        class="p-[5px] absolute right-0 top-[50%] translate-y-[-50%] translate-x-[-25px]">
+        <img src="./assets/svg/inputArrow.svg" alt="" />
+      </button>
+    </form>
+    <footer class="flex flex-col items-center pb-[10px] w-full">
+      <div class="card-container grid grid-cols-4 gap-[60px] w-full justify-between">
+        <div class="px-[18px] w-full pb-[40px] bg-whiteTransparent rounded-[10px] min-h-[300px]">
+          <span><img src="./assets/svg/smileHeart.svg" class="mx-auto mt-[60px] mb-[40px]" alt="" /></span>
+          <p class="text-[16px] text-whiteFull leading-[25.76px]">
+            At Can't Have It, we understand that everyone's dietary needs are
+            unique. Whether you have specific sensitivities or just don't
+            enjoy certain foods, we offer a solution that lets you tailor your
+            meals to your preferences.
+          </p>
         </div>
-        <span class="block text-[10px] md:text-[12px] mt-[30px] text-whiteFaded"
-          >TM © 2023 — Can’t Have It Inc. — All Rights Reserved</span
-        >
-      </footer>
-    </main>
-  </body>
-  <script src="script.js" type="module"></script>
-  <script src="./helpers/mobileNav.js" type="module"></script>
+        <div class="px-[18px] w-full pb-[40px] bg-whiteTransparent rounded-[10px] min-h-[300px]">
+          <span><img src="./assets/svg/time.svg" class="mx-auto mt-[60px] mb-[40px]" alt="" /></span>
+          <p class="text-[16px] text-whiteFull leading-[25.76px]">
+            With our service, you can choose your restrictions, and we'll take
+            care of the rest. No longer will you have to spend hours searching
+            for recipes that exclude certain ingredients
+          </p>
+        </div>
+        <div class="px-[18px] w-full pb-[40px] bg-whiteTransparent rounded-[10px] min-h-[300px]">
+          <span><img src="./assets/svg/plate.svg" class="mx-auto mt-[60px] mb-[40px]" alt="" /></span>
+          <p class="text-[16px] text-whiteFull leading-[25.76px]">
+            Can't Have It makes meal planning easy. Just enter your ingredient
+            restrictions, and our system will exclude those ingredients from
+            recipe searches. Enjoy personalized, hassle-free meal planning
+            with Can't Have It
+          </p>
+        </div>
+        <div class="px-[18px] w-full pb-[40px] bg-whiteTransparent rounded-[10px] min-h-[400px]">
+          <span><img src="./assets/svg/thinking.svg" class="mx-auto mt-[60px] mb-[40px]" alt="" /></span>
+          <p class="text-[16px] text-whiteFull leading-[25.76px]">
+            Can't Have It remembers your preferences, so you can focus on
+            enjoying delicious, personalized meals.
+          </p>
+        </div>
+      </div>
+      <span class="block text-[10px] md:text-[12px] mt-[30px] text-whiteFaded">TM © 2023 — Can’t Have It Inc. — All
+        Rights Reserved</span>
+    </footer>
+  </main>
+</body>
+<script src="script.js" type="module"></script>
+<script src="./helpers/mobileNav.js" type="module"></script>
+
 </html>

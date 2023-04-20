@@ -1,10 +1,16 @@
 
 ```
-AS an indiviual with health rescritions
-I WANT to be able to enter a product or a list of products and get recipes that exclude those items
-AS an individual with a specific diet
-I WANT to be able to enter my dietary restrictions an get recipes that cater to it
+AS AN individual with food allergies
+I WANT to be able to enter an item or a list of items 
+SO THAT I can view recipes that exclude those items
+AS AN individual with a specific dietary preference 
+I WANT to be able to select my dietary preference
+SO THAT I can view recipes that match that dietary preference
 ```
+
+## Screenshot of Web Application
+
+![Can't Have it Homepage](SS-Can'tHaveIt!.png)
 
 ## Excluding one ingredient from a meal
 

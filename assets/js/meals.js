@@ -1,9 +1,7 @@
 import { mealsCard } from "../../helpers/mealsCard.js";
 import { SPOONACULAR_API_KEY } from "../../util/keys.js";
 var currentApiInfoBulk = JSON.parse(localStorage.getItem("currentApiInfoBulk"));
-let currentRestrictionsList = document.querySelector(
-  ".currentRestrictionsList"
-);
+
 let url = "";
 
 let allOptions = JSON.parse(localStorage.getItem("options"));
@@ -145,3 +143,26 @@ let bulkInfo = JSON.parse(localStorage.getItem("currentApiInfoBulk"));
 bulkInfo?.forEach((meal) => {
   mealsCard(meal);
 });
+let saveBtn = document.querySelectorAll(".save-btn");
+saveBtn.forEach((item) =>
+  item.addEventListener("click", (e) => {
+    alert("here");
+    let dataToSearch = JSON.parse(localStorage.getItem("currentApiInfoBulk"));
+    let idToCompare = Number(e.target.id);
+    let foundData = dataToSearch.find((item) => item.id === idToCompare);
+    foundData.isSaved = true;
+    let prevSavedData = JSON.parse(localStorage.getItem("savedData"));
+    let dataExists = prevSavedData?.find((data) => data.id === idToCompare);
+    if (dataExists) {
+      console.log("EXITED");
+      return;
+    }
+    if (prevSavedData) {
+      let data = [foundData, ...prevSavedData];
+      localStorage.setItem("savedData", JSON.stringify(data));
+    } else {
+      localStorage.setItem("savedData", JSON.stringify([foundData]));
+    }
+    console.log(JSON.parse(localStorage.getItem("savedData")));
+  })
+);

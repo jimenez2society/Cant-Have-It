@@ -81,7 +81,7 @@ const createTag = (itemName) => {
     let exit = document.createElement("span");
     exit.id = itemName;
 
-    container.className = `${itemName} flex justify-between px-[12px] py-[6px] text-whiteFull items-center bg-otherRestrictions`;
+    container.className = `${itemName} flex justify-between px-[12px] py-[6px] text-whiteFull items-center bg-primary`;
     title.className = ` text-[12px]`;
 
     title.textContent = itemName;

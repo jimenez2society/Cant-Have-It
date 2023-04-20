@@ -11,6 +11,9 @@ let prevExcluded = JSON.parse(localStorage.getItem("previousExcludedItems"));
 
 let { pendingRequest, dietaryRestrictions, excludedItems } = allOptions;
 let count = 20;
+if (!excludedItems) {
+  excludedItems = [];
+};
 let excludedChanged;
 
 excludedItems

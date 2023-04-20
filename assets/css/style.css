@@ -1023,11 +1023,6 @@ video {
   background-color: rgb(143 180 134 / var(--tw-bg-opacity));
 }
 
-.bg-otherRestrictions {
-  --tw-bg-opacity: 1;
-  background-color: rgb(195 82 20 / var(--tw-bg-opacity));
-}
-
 .bg-paleolithic {
   background-color: #d7ff6b40;
 }

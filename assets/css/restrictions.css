@@ -1,0 +1,127 @@
+.restrictions-container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 20px;
+}
+.diets {
+  grid-column: 2/6;
+}
+.diets fieldset {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.other-diets {
+  grid-column: 6/9;
+}
+.current-diets {
+  grid-column: 9/12;
+  padding: 10px;
+}
+.selected-restrictions {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.selected-restrictions::-webkit-scrollbar {
+  display: none;
+}
+[name="diet"] + label {
+  cursor: pointer;
+}
+[name="diet"]:hover + label {
+  background-color: #eef6ffc2;
+}
+[name="diet"]:checked + label {
+  background-color: #eef6ff;
+  border-color: #92b9f4;
+}
+
+[name="diet"]:checked + label > div > .check-circle {
+  position: relative;
+  background-color: blue;
+}
+[name="diet"]:checked + label > div > .check-circle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 4px;
+  height: 4px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 1730px) {
+  .diets {
+    grid-column: 1/5;
+  }
+  .other-diets {
+    grid-column: 5/9;
+  }
+  .current-diets {
+    grid-column: 9/-1;
+  }
+}
+@media screen and (max-width: 1486px) {
+  .diets {
+    grid-column: 1/-1;
+  }
+  .other-diets {
+    grid-column: 1/7;
+    margin-top: 50px;
+  }
+  .current-diets {
+    grid-column: 7/-1;
+    margin-top: 50px;
+  }
+}
+@media screen and (max-width: 890px) {
+  .selected-restrictions {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+}
+@media screen and (max-width: 590px) {
+  .diets {
+    grid-column: 1/-1;
+  }
+  .other-diets {
+    grid-column: 1/-1;
+    margin-top: 50px;
+  }
+  .current-diets {
+    grid-column: 1/-1;
+    margin-top: 50px;
+  }
+}
+@media screen and (max-width: 520px) {
+  .diet-card p {
+    display: none;
+  }
+}
+@media screen and (max-width: 472px) {
+  .diet-card {
+    padding: 10px;
+  }
+  .diet-card p {
+    display: none;
+  }
+  .diets fieldset {
+    gap: 10px;
+  }
+  [name="diet"] + label > div {
+    gap: 5px;
+  }
+  [name="diet"] + label > div > h4 {
+    font-size: 10px;
+    width: 100%;
+    word-wrap: hidden;
+  }
+}

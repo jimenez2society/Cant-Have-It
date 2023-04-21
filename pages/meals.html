@@ -19,10 +19,12 @@
 </head>
 
 <body class="container-body min-h-screen bg-whiteFull px-[60px] relative">
+  <!-- toast -->
   <div
     class="toast toast-close fixed right-0 top-[200px] rounded-l-[5px] bg-whiteFull h-[50px] w-3/4 sm:w-[300px] z-[2000] border-t-[8px] border-green-400 flex items-center pl-[5px] pb-[5px] shadow-med">
     <span class="toast-msg block text-[10px]">Error : Please fill in all fields</span>
   </div>
+  <!-- mobile nav -->
   <div class="mobile-nav mobile-nav--close shadow-med bg-whiteFull hidden fixed right-0 top-0 w-[75%] h-full z-[1000]">
     <div
       class="exit-mobile-nav flex items-center justify-center h-max w-max cursor-pointer mt-[20px] ml-[20px] mb-[90px]">
@@ -46,7 +48,9 @@
       </li>
     </ul>
   </div>
+  <!-- backdrop -->
   <div class="backdrop z-[999] hidden bg-backdrop min-w-full min-h-full absolute left-0"></div>
+  <!-- header -->
   <header class="main-header flex items-center justify-between pt-[50px] mb-[60px] relative">
     <a href="/" class="logo-sm top-[50%]">
       <img src="../assets/svg/itSmallLogoDark.svg" alt="Can't have it logo" />
@@ -54,6 +58,7 @@
     <span id="nav-toggler" class="hidden">
       <img src="../assets/svg/hamburgerPrimary.svg" alt="" />
     </span>
+    <!-- desktop nav -->
     <nav class="main-nav">
       <ul class="flex gap-[60px] items-center text-[18px]">
         <li class="text-black">
@@ -79,7 +84,7 @@
       </h1>
     </div>
     <div class="results-container grid grid-cols-2 gap-[20px]">
-      <!-- item 1 -->
+    <!-- loading -->
       <div class="col-start-1 col-end-12 mx-auto loading-container">
         <div class="loading">
           <div class="outside-ring"></div>
@@ -98,7 +103,7 @@
           Setting up your meals catered to your specific needs
         </p>
       </div>
-      <!-- item 2 -->
+      <!-- no items container -->
       <div class="flex-col hidden col-start-1 col-end-12 mx-auto text-center no-items">
         <p class="text-gray-500 text-[16px] mb-[10px]">
           No items were found that include those ingredients. Maybe it

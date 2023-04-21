@@ -1,16 +1,15 @@
-
 ```
 AS AN individual with food allergies
-I WANT to be able to enter an item or a list of items 
+I WANT to be able to enter an item or a list of items
 SO THAT I can view recipes that exclude those items
-AS AN individual with a specific dietary preference 
+AS AN individual with a specific dietary preference
 I WANT to be able to select my dietary preference
 SO THAT I can view recipes that match that dietary preference
 ```
 
 ## Screenshot of Web Application
 
-![Can't Have it Homepage](SS-Can'tHaveIt!.png)
+![Can't Have it Homepage](/assets/imgs/SS-Can'tHaveIt!.png)
 
 ## Excluding one ingredient from a meal
 
@@ -42,6 +41,7 @@ API endpoint example:
 	"imageType": "jpg"
 }
 ```
+
 ## Get recipes with dietary rescritions
 
 API endpoint example:

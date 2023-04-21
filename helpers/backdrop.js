@@ -1,4 +1,5 @@
 let backdrop = document.querySelector(".backdrop");
+// handle open and close for backdrop
 export const openBackDrop = (cb) => {
   backdrop.addEventListener("click", (e) => {
     cb();

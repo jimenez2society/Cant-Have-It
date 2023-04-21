@@ -1,39 +1,53 @@
+/* making the whole container a grid with 12 cols */
 .restrictions-container {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   column-gap: 20px;
 }
+
+/* seperating the 3 sections between the cols */
 .diets {
+  /* from col 2 to col 6 */
   grid-column: 2/6;
 }
+/* making the diets sections a grid with 2 cols */
 .diets fieldset {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
 .other-diets {
+  /* from col 6 to col 9 */
   grid-column: 6/9;
 }
 .current-diets {
+  /* from col 9 to col 12 */
   grid-column: 9/12;
   padding: 10px;
 }
+/* making the selected restrictions a grid with 3 cols */
 .selected-restrictions {
   display: grid;
   gap: 20px;
   grid-template-columns: 1fr 1fr 1fr;
+  /* gives scroll bar no width */
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
+/* hides the scroll bar */
 .selected-restrictions::-webkit-scrollbar {
   display: none;
 }
+
+/* getting all elements with the name diet */
 [name="diet"] + label {
   cursor: pointer;
 }
+/* on hover */
 [name="diet"]:hover + label {
   background-color: #eef6ffc2;
 }
+/* style when checked */
 [name="diet"]:checked + label {
   background-color: #eef6ff;
   border-color: #92b9f4;
@@ -54,7 +68,7 @@
   background-color: white;
   border-radius: 50%;
 }
-
+/* adjust cols at the screen size 1730px */
 @media screen and (max-width: 1730px) {
   .diets {
     grid-column: 1/5;
@@ -66,6 +80,7 @@
     grid-column: 9/-1;
   }
 }
+/* adjust cols and margins at the screen size 1486px */
 @media screen and (max-width: 1486px) {
   .diets {
     grid-column: 1/-1;
@@ -79,15 +94,14 @@
     margin-top: 50px;
   }
 }
+/* ajust the num of cols depending on screen size */
 @media screen and (max-width: 890px) {
   .selected-restrictions {
-    display: grid;
-    gap: 20px;
     grid-template-columns: 1fr 1fr;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
   }
 }
+
+/* make each sections take up the whole col  */
 @media screen and (max-width: 590px) {
   .diets {
     grid-column: 1/-1;
@@ -101,11 +115,13 @@
     margin-top: 50px;
   }
 }
+/* hide the paragraph on the diet card  */
 @media screen and (max-width: 520px) {
   .diet-card p {
     display: none;
   }
 }
+/* adjust paddings and gaps */
 @media screen and (max-width: 472px) {
   .diet-card {
     padding: 10px;

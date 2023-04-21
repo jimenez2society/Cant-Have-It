@@ -19,6 +19,7 @@
 </head>
 
 <body class="container-body min-h-screen bg-whiteFull px-[60px] relative">
+    <!-- mobile nav -->
     <div
         class="mobile-nav mobile-nav--close shadow-med bg-whiteFull hidden fixed right-0 top-0 w-[75%] h-full z-[1000]">
         <div
@@ -44,7 +45,9 @@
             </li>
         </ul>
     </div>
+    <!-- backdrop -->
     <div class="backdrop z-[999] hidden bg-backdrop min-w-full min-h-full absolute left-0"></div>
+    <!-- header -->
     <header class="main-header flex items-center justify-between pt-[50px] mb-[60px] relative">
         <a href="/" class="logo-sm top-[50%]">
             <img src="../assets/svg/itSmallLogoDark.svg" alt="Can't have it logo" />
@@ -52,6 +55,7 @@
         <span id="nav-toggler" class="hidden">
             <img src="../assets/svg/hamburgerPrimary.svg" alt="" />
         </span>
+        <!-- desktop nav -->
         <nav class="main-nav">
             <ul class="flex gap-[60px] items-center text-[18px]">
                 <li class="text-black">
@@ -76,8 +80,8 @@
                 News
             </h1>
         </div>
+        <!-- results -->
         <div class="results-container grid grid-cols-2 gap-[20px]">
-            <!-- item 1 -->
             <div class="col-start-1 col-end-12 mx-auto loading-container">
                 <div class="loading">
                     <div class="outside-ring"></div>

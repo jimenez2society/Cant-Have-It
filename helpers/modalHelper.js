@@ -28,7 +28,7 @@ acceptRestrictions.addEventListener("click", (e) => {
 backdrop.addEventListener("click", (e) => {
   closeModal();
 });
-
+// hanles openening the modal and closing the modal
 export const openModal = () => {
   hideOverflow();
   modal.classList.add("modal-open");

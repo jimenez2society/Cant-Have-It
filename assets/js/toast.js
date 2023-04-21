@@ -1,4 +1,5 @@
 let toast = document.querySelector(".toast");
+// handles the toast with a message
 export const openToast = (msg) => {
   toast.textContent = msg;
   toast.classList.remove("toast-close");

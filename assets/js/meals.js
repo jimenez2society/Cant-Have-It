@@ -32,7 +32,7 @@ if (excludedItems && prevExcluded) {
 // conditionals to check weather the is any restrictions or excluded items and build the url depening on the condition
 if (
   !currentApiInfoBulk ||
-  dietaryRestrictions !== prevDiet.previousRestrictions ||
+  dietaryRestrictions !== prevDiet?.previousRestrictions ||
   excludedChanged
 ) {
   localStorage.removeItem("currentApiInfoBulk");

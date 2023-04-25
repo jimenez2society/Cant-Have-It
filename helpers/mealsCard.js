@@ -1,9 +1,11 @@
+
+// allows for dynamic rendering for meals cards and saved meals cards
+
 export function mealsCard(meal) {
   let loading = document.querySelector(".loading-container");
   loading.setAttribute("hidden", true);
   const container = document.querySelector(".results-container");
   const parser = new DOMParser();
-  console.log(meal);
   let item = parser.parseFromString(
     `
     <div  id=${meal.id} class="results-item id-${
@@ -89,13 +91,6 @@ export function mealsCard(meal) {
     "text/html"
   );
   container.appendChild(item.documentElement);
-  //   meal.diets.forEach((diet) => {
-  //     let span = document.createElement("span");
-  //     span.className = `block text-[8px] bg-${diet} rounded-full px-[13px] py-[5px]`;
-  //     span.textContent = diet;
-  //     let tagsContainer = document.querySelector(".resultItem-tags");
-  //     tagsContainer.appendChild(span);
-  //   });
 }
 export function savedMealsCard(meal) {
   const container = document.querySelector(".results-container");

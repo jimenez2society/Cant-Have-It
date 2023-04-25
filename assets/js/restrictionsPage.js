@@ -6,15 +6,17 @@ let otherResrictionsForm = document.querySelector(".other-restrictions-form");
 let emptyTitle = document.querySelector(".emptyTitle");
 let deleteDiet = document.querySelector(".delete-diet");
 let saveBtn = document.querySelector(".save-restrictions");
-
+// saveBtn on this page just redirects to meals.html because we do the actual saving functionality else where
 saveBtn.addEventListener("click", (e) => {
   location.pathname = "/pages/meals.html";
 });
+// hides empty title if there are items
 if (options.excludedItems && options.excludedItems.length > 0) {
   emptyTitle.setAttribute("hidden", true);
 }
 otherResrictionsForm.addEventListener("submit", function (e) {
   e.preventDefault();
+  // hides empty title on submit
   emptyTitle.setAttribute("hidden", true);
 
   let previousOptions = JSON.parse(localStorage.getItem("options"));
@@ -34,6 +36,8 @@ otherResrictionsForm.addEventListener("submit", function (e) {
   }
   otherResrictionsInput.value = "";
 });
+
+// convert the dash format to camel case format e.g gluten-free to glutenFree
 const dietToId = (diet) => {
   console.log(diet);
   if (diet.split("-")) {
@@ -49,6 +53,7 @@ const dietToId = (diet) => {
   }
   return diet;
 };
+// if dietary restrictions we keep that item selected
 if (options?.dietaryRestrictions) {
   let id = dietToId(options.dietaryRestrictions);
   let currentDiet = document.querySelector(`#${id}`);
@@ -57,7 +62,7 @@ if (options?.dietaryRestrictions) {
   currentDiet.checked = true;
 }
 let restrictionElements = Array.from(document.querySelectorAll(".diet"));
-
+// map through each restrictions element and add an event listener to get the value from it
 restrictionElements.forEach((el) => {
   el.addEventListener("click", (e) => {
     if (e.target.checked) {
@@ -71,7 +76,7 @@ restrictionElements.forEach((el) => {
     }
   });
 });
-
+// creates a tag for the selected restrictions
 const createTag = (itemName) => {
   let selectedRestrictions = document.querySelector(".selected-restrictions");
   let title = document.createElement("span");

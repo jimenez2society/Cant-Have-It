@@ -1,5 +1,6 @@
 import { closeBackDrop, openBackDrop } from "./backdrop.js";
 let nav = document.querySelector(".mobile-nav");
+// handles open and close of the mobile nav
 export const openNav = () => {
   openBackDrop(() => {
     nav.classList.add("mobile-nav--close");

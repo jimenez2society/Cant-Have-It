@@ -11,6 +11,9 @@ SO THAT I can view recipes that match that dietary preference
 
 ![Can't Have it Homepage](/assets/imgs/SS-Can'tHaveIt!.png)
 
+## *READ THIS IF YOU ARE CLONING OR FORKING THIS PROJECT* - Before using the API you must create a util folder inside the main dirctory with a keys.JS file and set your Spoonacular key to a variable named SPOONACULAR_API_KEY and then export it.
+
+
 ## Excluding one ingredient from a meal
 
 API endpoint example:
@@ -60,9 +63,6 @@ API endpoint example:
 
 Note - This endpoint structure is not a global rule to all APIs, every API has a different way of structuring their endpoints. I followed the docs [here](https://spoonacular.com/food-api/docs#Search-Recipes-Complex). As for where to put the API key I followed this guide [here](https://spoonacular.com/food-api/docs#Authentication).
 
-## Homepage
-
-![Can't have it homepage]()
 
 ### The process
 
@@ -79,13 +79,27 @@ Note - This endpoint structure is not a global rule to all APIs, every API has a
 
 - The user can also save the recipes.
 
-## Meal page
-
-- This is a page that displays a single meal.
-- Giving information as well as cooking instructions.
-
 ## Restrictions page
 
 - This page allows the user to set restrictions of any allergies/dietary restrictions/ or unliked foods to be set while they look through recipes.
 
 - Users can add and remove the restrictions.
+
+## Overview
+
+#### Contributers
+
+- [Corey Jimenez](https://github.com/jimenez2society)
+
+- [Oscar Zavala](https://github.com/rocas3096)
+
+- [Hani Mohammed](https://github.com/haniadenm)
+
+- [Rahcel Blasko](https://github.com/missblasko)
+
+- [Luke Campbell](https://github.com/lbcamp1117)
+
+#### Live Demo Link 
+
+- [Can't Have It Live Demo](https://6449e2d47746a72e02e798cc--canthave.netlify.app/)
+

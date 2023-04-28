@@ -89,3 +89,17 @@ Note - This endpoint structure is not a global rule to all APIs, every API has a
 - This page allows the user to set restrictions of any allergies/dietary restrictions/ or unliked foods to be set while they look through recipes.
 
 - Users can add and remove the restrictions.
+
+## Overview
+
+#### Contributers
+
+- [Corey Jimenez](https://github.com/jimenez2society)
+
+- [Oscar Zavala](https://github.com/rocas3096)
+
+- [Hani Mohammed](https://github.com/haniadenm)
+
+- [Rahcel Blasko](https://github.com/missblasko)
+
+- [Luke Campbell](https://github.com/lbcamp1117)

@@ -11,6 +11,9 @@ SO THAT I can view recipes that match that dietary preference
 
 ![Can't Have it Homepage](/assets/imgs/SS-Can'tHaveIt!.png)
 
+## *READ THIS IF YOU ARE CLONING OR FORKING THIS PROJECT* - Before using the API you must create a util folder inside the main dirctory with a keys.JS file and set your Spoonacular key to a variable named SPOONACULAR_API_KEY and then export it.
+
+
 ## Excluding one ingredient from a meal
 
 API endpoint example:

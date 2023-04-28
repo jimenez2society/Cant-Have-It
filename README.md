@@ -60,9 +60,6 @@ API endpoint example:
 
 Note - This endpoint structure is not a global rule to all APIs, every API has a different way of structuring their endpoints. I followed the docs [here](https://spoonacular.com/food-api/docs#Search-Recipes-Complex). As for where to put the API key I followed this guide [here](https://spoonacular.com/food-api/docs#Authentication).
 
-## Homepage
-
-![Can't have it homepage]()
 
 ### The process
 
@@ -78,11 +75,6 @@ Note - This endpoint structure is not a global rule to all APIs, every API has a
 - This is the page where the list of recipes will be displayed. A user can click on a recipe to get more information about it as well as cooking instructions.
 
 - The user can also save the recipes.
-
-## Meal page
-
-- This is a page that displays a single meal.
-- Giving information as well as cooking instructions.
 
 ## Restrictions page
 
